@@ -10,3 +10,11 @@
 - Now click on the Module bucket with the name Applied AI Engineering Foundations
 - Recordings:
     - https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7062/topics/23758 
+
+
+# Joining application
+- https://applications.bitspilani-digital.edu.in/dashboard
+- Email : sreedharkaranam2003@gmail.com
+- Login with OTP
+- Offer letter : https://applications.bitspilani-digital.edu.in/document/UGRISlRjYU1wOFpsalpUdlhZUW1qMU1QelIzNUJNQTN3UFpXYWk0L1VSQXQrZGlQUkNxa2dHUnZoN01CbmZCcDErYmNOU1lxcnBteHBFMGJPT0FjbTVZYzBuZmdrS1BnbkxhSkltOTZ0MkFTRmNjN2tYT1J0U01GM3RRRmdjNGNtbVR0M0QyOEdiTXNpUEVaaDRiVElIUWxoaG11blRuRS96MURlZzBSdS9QR2kxelRlRXFmM3VMWngwVzB3TDEvRWJMaTB6bzNkT1BiLzBvbVVsSkgvZ0ZhVWhydWlmakRjdGJCamFzeVJ3aHp3YURFaENHbjhIZHVmU289
+- 
