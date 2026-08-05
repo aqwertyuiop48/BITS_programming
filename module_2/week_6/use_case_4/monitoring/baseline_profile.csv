@@ -1,0 +1,26 @@
+column_name,column_type,top_values,null_rate,mean,std
+customerID,categorical,"{""7590-0637"": 0.0019, ""7590-0220"": 0.0019, ""7590-0428"": 0.0019, ""7590-0326"": 0.0019, ""7590-0072"": 0.0019}",0.0,,
+gender,categorical,"{""Male"": 0.5135, ""Female"": 0.4865}",0.0,,
+SeniorCitizen,numeric,,0.0,0.1904,0.393
+Partner,categorical,"{""No"": 0.5212, ""Yes"": 0.4788}",0.0,,
+Dependents,categorical,"{""Yes"": 0.7077, ""No"": 0.2923}",0.0,,
+tenure,numeric,,0.0,34.7269,21.0769
+PhoneService,categorical,"{""No"": 0.9077, ""Yes"": 0.0923}",0.0,,
+MultipleLines,categorical,"{""No phone service"": 0.9077, ""No"": 0.05, ""Yes"": 0.0423}",0.0,,
+InternetService,categorical,"{""Fiber optic"": 0.4731, ""DSL"": 0.3635, ""No"": 0.1635}",0.0,,
+OnlineSecurity,categorical,"{""No"": 0.4962, ""Yes"": 0.3404, ""No internet service"": 0.1635}",0.0,,
+OnlineBackup,categorical,"{""No"": 0.5346, ""Yes"": 0.3019, ""No internet service"": 0.1635}",0.0,,
+DeviceProtection,categorical,"{""No"": 0.5365, ""Yes"": 0.3, ""No internet service"": 0.1635}",0.0,,
+TechSupport,categorical,"{""No"": 0.5058, ""Yes"": 0.3308, ""No internet service"": 0.1635}",0.0,,
+StreamingTV,categorical,"{""No"": 0.5346, ""Yes"": 0.3019, ""No internet service"": 0.1635}",0.0,,
+StreamingMovies,categorical,"{""No"": 0.5192, ""Yes"": 0.3173, ""No internet service"": 0.1635}",0.0,,
+Contract,categorical,"{""Month-to-month"": 0.5981, ""One year"": 0.2038, ""Two year"": 0.1981}",0.0,,
+PaperlessBilling,categorical,"{""No"": 0.6135, ""Yes"": 0.3865}",0.0,,
+PaymentMethod,categorical,"{""Electronic check"": 0.3173, ""Credit card (automatic)"": 0.2538, ""Bank transfer (automatic)"": 0.2365, ""Mailed check"": 0.1923}",0.0,,
+MonthlyCharges,numeric,,0.0,57.843,20.2224
+TotalCharges,numeric,,0.0308,2018.9125,1413.5865
+Churn,categorical,"{""No"": 0.7212, ""Yes"": 0.2788}",0.0,,
+label,numeric,,0.0,0.2788,0.4489
+is_new_customer,numeric,,0.0,0.1058,0.3078
+monthly_charge_band,categorical,"{""Medium"": 0.55, ""High"": 0.2923, ""Low"": 0.1577}",0.0,,
+avg_monthly_spend_gap,numeric,,0.0,-30.9428,317.8582

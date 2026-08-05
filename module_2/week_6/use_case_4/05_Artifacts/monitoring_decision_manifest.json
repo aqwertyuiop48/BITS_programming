@@ -1,0 +1,11 @@
+{
+  "model_under_review": "telco-churn-demo-model-group:1.0.0-demo",
+  "flagged_checks": 2,
+  "recommended_action": "RetainWithObservation",
+  "decision_ladder": {
+    "0_to_3_flags": "Retain current model and continue monitoring.",
+    "4_to_10_flags": "Open manual review and compare challenger model.",
+    "11_plus_flags": "Escalate to rollback or retraining workflow."
+  },
+  "monitoring_input": "s3://<your-bucket>/churn/monitoring/incoming/future_scoring_sample.csv"
+}
