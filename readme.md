@@ -57,3 +57,7 @@ Without this foundation, advanced topics like Kubeflow, Triton, drift detection,
 - Now click on the Module bucket with the name Applied AI Engineering Foundations
 - Recordings:
     - https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7062/topics/23758 
+
+
+# Assignments
+- https://lumen.bitspilani-digital.edu.in/d2l/lms/dropbox/user/folders_list.d2l?ou=7062&isprv=0
