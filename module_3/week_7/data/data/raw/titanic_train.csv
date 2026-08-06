@@ -1,0 +1,201 @@
+PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+1,0,3,John Kelly,male,34,0,0,A/5 21171,7.25,,S
+2,1,1,Anna Harper,female,29,1,0,PC 17599,71.2833,C85,C
+3,1,3,Maria Silva,female,22,0,0,STON/O2 3101282,7.925,,S
+4,1,1,James Carter,male,48,1,0,113803,53.1,C123,S
+5,0,3,Patrick Doyle,male,35,0,0,373450,8.05,,S
+6,0,3,Liam Murphy,male,,0,0,330877,8.4583,,Q
+7,0,1,Charles Kent,male,54,0,0,17463,51.8625,E46,S
+8,1,3,Emily Stone,female,18,0,0,349909,7.75,,Q
+9,1,2,Sarah Ali,female,27,0,2,237736,13.0,,S
+10,0,2,Robert Nash,male,41,0,0,PP 9549,26.0,,S
+11,1,1,Grace Lee,female,36,0,0,PC 17601,76.7292,D33,C
+12,0,3,Tom Baker,male,19,0,0,349245,7.8958,,S
+13,0,3,Walter Phillips,male,,2,1,855772,6.5051,,S
+14,0,3,Emma Robinson,female,34.0,0,0,840484,11.1363,,S
+15,1,2,Ethel Cooper,female,22.0,0,0,469764,21.6737,G114,Q
+16,0,2,Frederick Lewis,male,17.0,0,0,824287,22.9838,A70,S
+17,1,3,Reginald Davies,male,29.0,0,0,555045,6.4951,,S
+18,1,1,Clara Scott,female,6.0,0,0,523986,89.518,,S
+19,1,2,Mary Wilson,female,16.0,0,0,476162,14.8516,G103,S
+20,0,1,Reginald Carter,male,34.0,0,0,WE/P 71532,79.4658,,S
+21,0,1,Frank Martin,male,33.0,0,2,SOTON 50231,55.3717,G120,S
+22,1,1,Clifford Mitchell,male,20.0,1,0,621297,72.1748,,S
+23,1,2,George Walker,male,39.0,0,0,651206,13.4972,G91,S
+24,0,3,Harold Walker,male,39.0,0,2,804460,4.8048,,S
+25,0,2,Reginald Lewis,male,26.0,1,0,206986,11.2946,,S
+26,0,3,Margaret Harris,female,22.0,0,0,196966,19.5449,,C
+27,1,2,Lily Johnson,female,26.0,2,0,236385,14.6674,,Q
+28,1,3,Agnes Brown,female,45.0,0,0,566972,9.0961,,C
+29,0,3,William Brown,male,50.0,0,0,998224,4.5573,,S
+30,0,3,Percy Morris,male,,0,0,112542,7.3374,,S
+31,1,1,Mary Turner,female,,0,2,382363,52.2746,,S
+32,0,3,Douglas Young,male,,0,0,599677,23.284,,S
+33,0,3,Frank Carter,male,,1,1,788631,2.8537,,S
+34,0,3,Frank Brown,male,43.0,1,0,436765,19.5517,,S
+35,0,3,Stanley Jones,male,23.0,1,0,638703,6.7162,,Q
+36,0,1,George Allen,male,25.0,0,0,119033,102.5253,,S
+37,1,3,Leonard Davies,male,65.0,0,0,933234,5.3203,,S
+38,0,3,Herbert Robinson,male,5.0,1,2,932356,6.0661,,C
+39,0,3,Reginald Allen,male,30.0,0,0,155019,8.12,,S
+40,0,2,Charles Martin,male,39.0,0,0,924712,15.4849,C103,S
+41,0,3,Emma Scott,female,39.0,0,0,637699,11.7073,,S
+42,1,1,Violet Scott,female,,2,0,634313,38.3588,A66,C
+43,0,2,Alice Williams,female,32.0,0,0,312137,20.6422,G121,S
+44,1,1,Harold Turner,male,33.0,1,0,PP 57897,105.1302,A124,S
+45,1,1,Helen Allen,female,26.0,0,2,494113,71.1952,,S
+46,0,3,Edward Phillips,male,,0,0,750326,7.8731,,S
+47,1,2,Reginald Smith,male,35.0,0,2,371734,18.4457,,C
+48,0,3,Florence Scott,female,38.0,0,0,827513,6.9177,,C
+49,0,3,George Smith,male,39.0,1,0,104886,2.6242,,S
+50,0,3,Mabel King,female,,0,0,593440,7.1762,,C
+51,1,1,Lily Jones,female,23.0,2,0,273737,77.5684,,S
+52,0,1,Percy Davies,male,14.0,1,0,SOTON 62020,75.3606,,Q
+53,1,3,Elizabeth Taylor,female,26.0,0,0,184068,7.7379,,S
+54,1,3,Helen Wood,female,17.0,0,0,470629,6.1013,,S
+55,1,2,Edith Allen,female,23.0,0,0,576696,15.4515,,S
+56,1,3,Lily Allen,female,36.0,0,1,897761,9.1024,,C
+57,1,1,Stanley Phillips,male,33.0,0,0,473688,99.0261,G12,C
+58,0,3,Albert Hall,male,21.0,1,0,428427,9.246,,C
+59,0,3,Ernest Evans,male,32.0,0,1,280432,15.6102,,S
+60,1,1,Reginald Phillips,male,47.0,0,0,SOTON 66887,55.2347,,Q
+61,1,2,Dorothy Turner,female,18.0,1,0,786611,16.6053,D121,S
+62,0,3,Clifford Phillips,male,35.0,1,0,208149,6.532,,S
+63,0,2,Stanley Hall,male,27.0,0,0,194481,26.9897,,S
+64,0,2,Charles Young,male,27.0,1,0,986288,9.353,,S
+65,0,3,Elsie Wright,female,,1,0,803803,5.1451,,S
+66,0,3,Reginald Roberts,male,,1,0,392734,10.8111,,S
+67,1,3,Douglas Evans,male,20.0,1,0,599914,3.5127,,S
+68,1,3,Violet Carter,female,18.0,1,0,310287,5.6894,,S
+69,0,3,Agnes Hall,female,21.0,0,0,126646,2.5324,,S
+70,1,2,Ethel Clarke,female,24.0,0,0,674416,22.7918,C123,Q
+71,1,1,Margaret Davies,female,11.0,0,1,C.A. 41577,149.2927,,S
+72,0,2,Dorothy Cooper,female,24.0,1,0,311587,15.4301,C64,S
+73,0,3,Dorothy Young,female,32.0,0,0,101381,8.7768,,C
+74,1,3,Margaret Scott,female,36.0,0,1,494547,5.9866,,C
+75,0,3,Walter Scott,male,22.0,0,0,364285,2.7226,,S
+76,1,1,William Wilson,male,,0,0,CA 30749,104.2212,D72,S
+77,1,1,Ethel Taylor,female,25.0,0,0,SC 92274,55.5042,A84,S
+78,1,2,Leonard Wilson,male,13.0,1,0,937345,23.0417,,Q
+79,0,1,George Brown,male,1.0,0,0,512040,28.1476,,C
+80,0,3,George Wilson,male,15.0,2,0,926913,4.9556,,S
+81,0,3,Herbert Robinson,male,,0,0,693240,7.7876,,S
+82,0,3,Alfred Brown,male,,0,0,901016,8.967,,S
+83,1,1,Harold Wood,male,,1,1,SOTON 63510,59.3277,,S
+84,0,3,Elizabeth Smith,female,41.0,1,0,572730,5.1276,,S
+85,1,3,Edith Johnson,female,12.0,0,0,782579,5.7826,,S
+86,1,1,Violet Clarke,female,31.0,2,0,891995,124.1371,G137,S
+87,1,2,Alfred Williams,male,1.0,0,0,818286,15.1721,F130,S
+88,0,3,Arthur Wood,male,28.0,1,0,614258,8.8407,,S
+89,1,3,Clara Hall,female,40.0,0,0,520875,8.7265,,S
+90,0,3,George Williams,male,27.0,0,0,151341,4.0997,,S
+91,0,1,Leonard Williams,male,29.0,0,0,889038,58.8477,G52,Q
+92,0,3,Walter Taylor,male,44.0,0,1,568896,5.1554,,S
+93,1,1,Elizabeth Clarke,female,17.0,0,0,CA 30961,68.07,E16,Q
+94,1,2,Agnes Wright,female,33.0,0,0,405389,30.3031,B114,S
+95,1,2,William Morris,male,30.0,0,0,425237,16.6765,,S
+96,0,3,Charles Phillips,male,32.0,0,0,957884,11.4505,,S
+97,1,2,Alice Lewis,female,32.0,0,2,845869,21.3846,C75,S
+98,1,1,Clifford Jones,male,57.0,1,0,PP 59736,68.9478,,S
+99,0,1,Douglas Carter,male,24.0,0,2,514989,41.4512,A110,S
+100,0,3,Harold Davies,male,38.0,0,0,349977,8.7048,,C
+101,0,3,Douglas Martin,male,51.0,0,0,952781,10.5907,,S
+102,1,2,Ethel Martin,female,23.0,0,0,898616,24.3348,F102,S
+103,0,3,Helen Roberts,female,,0,0,322012,9.9122,,S
+104,0,1,Herbert Turner,male,23.0,0,0,LINE 46005,104.0505,D65,S
+105,0,3,George Morris,male,37.0,0,0,828229,7.852,,S
+106,1,3,Dorothy Morris,female,12.0,1,0,980383,4.0354,,S
+107,0,2,Leonard Young,male,26.0,1,1,509015,13.4692,,S
+108,1,1,Elsie Wright,female,25.0,0,0,204133,117.677,,Q
+109,1,1,Dorothy Johnson,female,29.0,0,1,365570,87.2125,,S
+110,1,3,Violet Smith,female,49.0,2,0,564812,12.4715,,S
+111,0,3,Frederick Carter,male,10.0,0,0,250651,14.647,,C
+112,1,1,Emma Ward,female,23.0,0,0,PC 40427,65.091,,C
+113,0,1,Ernest Jones,male,16.0,1,0,331706,60.3503,G92,C
+114,0,2,Walter Evans,male,21.0,0,0,155015,15.1418,,C
+115,1,1,Edith Davies,female,29.0,2,1,SOTON 32671,34.3441,,S
+116,0,3,Nellie Clarke,female,,0,0,739478,7.1157,,S
+117,1,3,Elizabeth Clarke,female,33.0,0,0,426090,5.2321,,S
+118,0,3,Mary Carter,female,26.0,0,2,254764,10.5114,,S
+119,1,1,Mary Evans,female,14.0,0,0,LINE 42162,62.0729,B54,S
+120,0,3,Reginald Cooper,male,,0,0,279251,2.7251,,S
+121,0,3,Stanley Taylor,male,16.0,0,2,997008,9.6475,,C
+122,1,3,Herbert Walker,male,1.0,0,0,295172,7.5903,,S
+123,1,3,Elizabeth Young,female,21.0,0,2,422805,3.3249,,S
+124,1,2,Edith Lewis,female,32.0,0,0,550582,17.6905,,S
+125,1,1,Nellie Roberts,female,26.0,2,0,PP 19352,84.9011,,Q
+126,1,1,Clifford Morris,male,,1,1,712376,26.2598,,S
+127,0,3,Stanley Allen,male,30.0,1,0,169030,8.4219,,Q
+128,1,1,Constance Morris,female,1.0,0,0,C.A. 21500,21.2864,,S
+129,1,3,Ethel Williams,female,35.0,0,0,355957,3.8444,,S
+130,1,3,Percy Wright,male,31.0,0,0,543036,7.0936,,S
+131,0,3,Frederick Evans,male,,0,1,828071,6.812,,S
+132,1,1,Albert Wood,male,,1,0,920445,61.8846,,Q
+133,0,3,Charles Turner,male,21.0,0,0,581407,11.3276,,Q
+134,0,1,George Morris,male,45.0,1,1,370180,94.3953,C142,S
+135,1,3,Annie Lewis,female,1.0,0,0,734353,7.8247,,S
+136,0,3,George Ward,male,,0,0,445188,17.3388,,S
+137,0,3,Herbert Allen,male,,0,0,144205,8.4154,,S
+138,1,1,Agnes Wright,female,8.0,0,0,SC 79368,177.2499,,Q
+139,0,1,George Scott,male,16.0,0,1,577970,90.9093,F36,S
+140,0,2,Annie Williams,female,43.0,0,0,537652,34.3908,,S
+141,1,2,Margaret Walker,female,24.0,0,1,793461,34.8343,,C
+142,1,3,Lily Ward,female,17.0,1,0,964527,4.204,,S
+143,0,3,Albert Davies,male,28.0,1,0,822187,19.2614,,Q
+144,0,2,George Davies,male,32.0,0,0,894542,9.7038,,S
+145,1,1,Mabel Turner,female,23.0,1,1,SC 42472,89.5482,,C
+146,0,2,Alfred Wilson,male,27.0,0,0,910716,23.0353,,S
+147,0,3,Arthur Wright,male,3.0,0,1,678697,6.8904,,C
+148,0,1,Harold Walker,male,36.0,0,0,161822,38.4829,,S
+149,1,3,Mabel Taylor,female,31.0,0,2,382912,3.3655,,S
+150,1,1,Alfred Jones,male,20.0,1,0,C.A. 92194,46.8295,,C
+151,0,3,Ethel Wilson,female,20.0,0,0,798050,3.6719,,S
+152,1,2,Elsie Phillips,female,28.0,2,0,291767,30.7442,,C
+153,1,2,Elizabeth Clarke,female,40.0,0,0,220836,9.5437,,S
+154,1,2,Constance Williams,female,14.0,0,0,321287,9.4932,,S
+155,0,3,Annie Mitchell,female,32.0,0,0,936956,5.5277,,S
+156,0,2,Arthur Williams,male,29.0,0,1,304894,29.958,B20,S
+157,1,2,Annie Roberts,female,28.0,2,1,141684,27.899,B83,C
+158,0,2,Reginald Wood,male,29.0,0,0,322052,13.1709,B121,C
+159,0,3,Frederick Carter,male,5.0,1,2,693363,4.5715,,S
+160,0,1,Leonard Wright,male,32.0,0,2,C.A. 31185,69.075,,C
+161,1,3,Frank Lewis,male,15.0,0,0,298141,10.0041,,C
+162,1,2,Agnes Jones,female,8.0,1,1,819142,10.2604,,C
+163,1,1,Dorothy Lewis,female,30.0,0,0,739014,53.0026,,S
+164,1,2,Florence Taylor,female,15.0,2,0,268659,23.6462,,S
+165,0,3,Charles Smith,male,16.0,1,0,219287,7.1995,,S
+166,0,3,Alfred Martin,male,10.0,1,0,819572,6.2967,,S
+167,0,3,Mabel Cooper,female,32.0,0,0,169970,5.6767,,S
+168,1,2,Margaret Wright,female,57.0,0,0,146305,12.6854,E20,S
+169,0,2,Walter Mitchell,male,22.0,0,0,542630,29.7892,F140,S
+170,1,3,Walter Hall,male,1.0,0,0,630071,12.3546,,S
+171,0,1,George Scott,male,24.0,0,0,CA 45575,60.81,D145,S
+172,0,3,Frank Wilson,male,28.0,1,2,915211,3.0854,,S
+173,1,2,Elsie Wood,female,40.0,0,1,701343,25.4452,,S
+174,1,2,Mabel Lewis,female,25.0,0,0,986541,21.6921,,S
+175,1,2,Mabel Martin,female,,0,1,986204,9.9815,,C
+176,0,2,Harold Wilson,male,,0,0,239857,16.6845,E24,S
+177,0,2,Leonard Mitchell,male,,0,1,827446,15.2339,,S
+178,0,3,Violet Cooper,female,37.0,0,0,544656,10.3925,,S
+179,1,1,Herbert Scott,male,14.0,1,0,CA 13829,103.071,,S
+180,0,2,Thomas Davies,male,14.0,0,2,885745,16.977,D143,S
+181,1,3,Elsie Davies,female,35.0,0,0,595290,5.6841,,S
+182,1,3,Alfred Turner,male,3.0,0,0,121001,5.769,,C
+183,1,1,Albert Young,male,45.0,1,0,948310,38.5331,,S
+184,1,3,Annie Taylor,female,5.0,0,0,226227,18.455,,C
+185,0,3,Edward Harris,male,40.0,0,0,858457,8.0756,,S
+186,1,1,Florence Jones,female,,0,0,375519,58.4553,,S
+187,1,1,Albert Lewis,male,34.0,1,0,323464,58.0299,,S
+188,1,2,Thomas Carter,male,,0,1,984792,21.4726,D98,Q
+189,0,2,Douglas Allen,male,10.0,0,0,232068,30.7326,,S
+190,0,2,Arthur Jones,male,49.0,0,0,976555,23.3876,F80,Q
+191,1,3,Edward Brown,male,1.0,0,2,351538,6.0065,,S
+192,0,2,Alfred King,male,41.0,0,0,190930,24.2251,D75,S
+193,1,1,Agnes Robinson,female,38.0,0,0,943215,76.6531,C136,S
+194,1,3,Herbert Taylor,male,33.0,0,0,644622,7.3917,,Q
+195,0,1,Edward Martin,male,29.0,0,0,SC 30335,24.6354,,S
+196,1,3,Dorothy Jones,female,22.0,1,1,553796,9.9556,,C
+197,0,3,Elsie Harris,female,,2,1,220080,3.4673,,S
+198,1,3,Mary Hall,female,18.0,0,0,871173,11.3018,,S
+199,1,2,Elizabeth Johnson,female,31.0,0,0,144731,12.5067,,S
+200,0,3,George Walker,male,29.0,1,2,841520,5.2354,,S

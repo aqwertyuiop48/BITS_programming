@@ -62,6 +62,17 @@ Without this foundation, advanced topics like Kubeflow, Triton, drift detection,
 # Assignments
 - https://lumen.bitspilani-digital.edu.in/d2l/lms/dropbox/user/folders_list.d2l?ou=7062&isprv=0
 
-- assignment 1 : week 2 : https://lumen.bitspilani-digital.edu.in/d2l/lms/dropbox/user/folder_submit_files.d2l?db=191&grpid=0&isprv=0&bp=0&ou=7062
+- (TO DO) assignment 1 : week 2 : https://lumen.bitspilani-digital.edu.in/d2l/lms/dropbox/user/folder_submit_files.d2l?db=191&grpid=0&isprv=0&bp=0&ou=7062
+
 - assignment 2 : week 7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27659
 - assignment 3 : week 7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27658
+- assignment 4 : week 7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27667
+- assignment 5 : week 7: https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27668
+- assignment 6 : week 7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27665
+- assignment 7 : week 7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27666
+
+- assignment 8 : week 8 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/folders/28388
+- assignment 9 : week 11 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/37120
+- assignment 10 : week 13 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/37158
+- assignment 11 : week 15 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/41480
+- assignment 12 : week 15 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/41057
