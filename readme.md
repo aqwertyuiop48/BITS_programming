@@ -79,4 +79,9 @@ Without this foundation, advanced topics like Kubeflow, Triton, drift detection,
 - assignment 13 : week 16 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7065/topics/43357
 - assignment 14 : week 17 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7065/topics/43358
 - assignment 15 : week 18 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7065/topics/43359
-- 
+- assignment 16 : week 19 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/43397
+- assignment 17 : week 20 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/43397
+- assignment 18 : week 21 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45757
+- assignment 19 : week 22 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45758
+- assignment 20 : week 23 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/46094
+- assignment 21 : week 25 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/47902
