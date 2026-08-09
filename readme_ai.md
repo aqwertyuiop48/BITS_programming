@@ -15,6 +15,9 @@ curl https://openrouter.ai/api/v1/chat/completions \  -H "Content-Type: applicat
 </code>
 
 - Roo code (not loading properly) : https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline
+- Ollama:
+    -   https://ollama.com/download/OllamaSetup.exe
+    -   
 
 
 To view all Google cloud projects:
