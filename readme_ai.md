@@ -1,7 +1,7 @@
-Browser:
+<h3> Browser </h3>
 
 
-CLI / IDE extension:
+<h3> CLI / IDE extension </h3>
 - Codex: https://marketplace.visualstudio.com/items?itemName=openai.chatgpt
 - Cline : https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev
 - Github copilot: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat
