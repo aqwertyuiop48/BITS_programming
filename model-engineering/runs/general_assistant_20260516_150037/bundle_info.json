@@ -1,0 +1,13 @@
+{
+  "run_name": "general_assistant_20260516_150037",
+  "task_name": "general_assistant",
+  "model": "gemini-2.5-flash",
+  "prompt_config": "configs/prompts/general_assistant.yaml",
+  "llm_config": "configs/llm/gemini.yaml",
+  "created_at": "2026-05-16T15:00:44.340216+00:00",
+  "files": {
+    "response": "response.txt",
+    "metadata": "metadata.json",
+    "params": "params.json"
+  }
+}

@@ -1,0 +1,25 @@
+# Code Review Prompt
+# Demonstrates prompt for teaching code best practices via LLM
+
+task_name: "code_review"
+task_description: "Review Python code for ML projects"
+
+system_prompt: |
+  You are a senior ML engineer reviewing Python code for a university course.
+  Provide constructive feedback focused on readability, efficiency, and ML best practices.
+  Highlight what's done well and suggest improvements.
+
+user_prompt_template: |
+  Review this code:
+  ```python
+  {code}
+  ```
+  
+  Provide:
+  1. What's Good (1-2 positives)
+  2. Improvements (2-3 specific suggestions)
+  3. ML Best Practice Tip (1 paragraph)
+
+generation_override:
+  temperature: 0.5
+  max_tokens: 2048

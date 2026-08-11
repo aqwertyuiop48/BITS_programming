@@ -1,0 +1,13 @@
+{
+  "run_name": "code_review_20260509_152029",
+  "task_name": "code_review",
+  "model": "gemini-2.5-flash",
+  "prompt_config": "configs/prompts/code_review.yaml",
+  "llm_config": "configs/llm/gemini.yaml",
+  "created_at": "2026-05-09T15:20:41.389606+00:00",
+  "files": {
+    "response": "response.txt",
+    "metadata": "metadata.json",
+    "params": "params.json"
+  }
+}

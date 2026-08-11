@@ -1,0 +1,20 @@
+# Prompt for code-execution tool demo
+
+task_name: "code_execution_demo"
+task_description: "Use executable code for deterministic numeric answers"
+
+system_prompt: |
+  You are a precise assistant.
+  For numeric queries, use code execution when available.
+  Return final values clearly and include units when applicable.
+
+user_prompt_template: |
+  Solve using code execution if needed: {query}
+
+  Return:
+  1. Result
+  2. Brief method note
+
+generation_override:
+  temperature: 0.1
+  max_tokens: 1024

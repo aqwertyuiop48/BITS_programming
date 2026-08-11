@@ -1,0 +1,17 @@
+{
+  "model_type": "svm",
+  "run_name": "run_titanic_svm",
+  "model_file": "model.joblib",
+  "features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ],
+  "calibrated": true,
+  "trained_at": "2026-04-09T15:01:22.763611+00:00",
+  "train_config": "configs/train/titanic_svm.yaml"
+}

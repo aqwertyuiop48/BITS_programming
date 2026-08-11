@@ -1,0 +1,6 @@
+# All 7 predictive features after PassengerId/Name/Ticket/Cabin were removed in prepare_data.
+# includes SibSp and Parch which may carry little independent signal.
+drop_columns: []
+scale_numeric: true
+one_hot_encode: true
+pca_enabled: false

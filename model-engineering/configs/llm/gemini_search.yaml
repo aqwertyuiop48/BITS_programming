@@ -1,0 +1,22 @@
+# Gemini config for search-only tool-call demos
+
+model_name: "gemini-2.5-flash"
+
+generation_params:
+  temperature: 0.4
+  max_tokens: 1536
+  top_p: 0.95
+  top_k: 40
+  tools:
+    - google_search: {}
+
+paths:
+  api_key_env: "GEMINI_API_KEY"
+  runs_dir: "runs"
+  prompt_config_dir: "configs/prompts"
+
+artifacts:
+  response_file: "response.txt"
+  metadata_file: "metadata.json"
+  params_file: "params.json"
+  bundle_info_file: "bundle_info.json"

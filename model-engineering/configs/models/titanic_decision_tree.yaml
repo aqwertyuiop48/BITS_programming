@@ -1,0 +1,8 @@
+model_type: decision_tree
+# Trees output hard probability scores (0/1 at leaves); calibrate=true
+# wraps with CalibratedClassifierCV(isotonic) for better probability estimates.
+calibrate: true
+params:
+  max_depth: 5
+  min_samples_leaf: 10
+  random_state: 42

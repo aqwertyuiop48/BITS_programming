@@ -1,0 +1,21 @@
+{
+  "model": "gemini-2.5-flash",
+  "timestamp": "2026-05-16T14:56:56.974161+00:00",
+  "latency_ms": 2613.8,
+  "prompt_tokens": 68,
+  "response_tokens": 114,
+  "total_tokens": 414,
+  "tool_usage": {
+    "tool_calls_detected": false,
+    "function_calls": [],
+    "execution_events": [],
+    "has_grounding_metadata": false,
+    "grounding_metadata": null
+  },
+  "task": "general_assistant",
+  "query": "What is the Transformer architecture in machine learning?",
+  "budget_mode": "low",
+  "auto_route": true,
+  "routing_reason": "no tool intent detected; using direct generation",
+  "routed_tools": []
+}

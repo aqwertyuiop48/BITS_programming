@@ -1,0 +1,8 @@
+model_type: svm
+# SVM decision values are not probabilities; calibrate=true wraps with
+# CalibratedClassifierCV(isotonic) — essential before comparing ROC curves.
+calibrate: true
+params:
+  C: 1.0
+  kernel: rbf
+  gamma: scale

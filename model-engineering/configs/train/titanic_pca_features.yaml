@@ -1,0 +1,12 @@
+run_name: run_titanic_pca
+seed: 42
+paths:
+  data_config: configs/data/titanic_bakeoff.yaml
+  feature_config: configs/features/titanic_pca_features.yaml
+  model_config: configs/models/titanic_logreg.yaml
+  runs_dir: runs
+artifacts:
+  model_file: model.joblib
+  metrics_file: metrics.json
+  params_file: params.json
+  predictions_file: predictions.csv

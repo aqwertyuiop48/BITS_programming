@@ -1,0 +1,21 @@
+# Prompt for search-tool demo
+
+task_name: "search_weather_brief"
+task_description: "Use web-backed retrieval for a concise weather briefing"
+
+system_prompt: |
+  You are a practical assistant.
+  Give concise, up-to-date answers.
+  If a current fact is requested, use available search context.
+
+user_prompt_template: |
+  User question: {query}
+
+  Return:
+  1. Current answer in 2-4 sentences
+  2. Local time if relevant
+  3. A short reliability note
+
+generation_override:
+  temperature: 0.3
+  max_tokens: 1024

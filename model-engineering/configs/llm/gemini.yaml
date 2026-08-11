@@ -1,0 +1,40 @@
+# Gemini LLM Configuration for Teaching Demo
+# Purpose: Configure Gemini API access for prompt engineering and LLM demonstrations
+# Free tier: https://ai.google.dev/
+
+model_name: "gemini-2.5-flash"  # Free tier model for teaching
+
+# Safety settings for classroom-appropriate responses
+safety_settings:
+  HARM_CATEGORY_HARASSMENT: "BLOCK_NONE"
+  HARM_CATEGORY_HATE_SPEECH: "BLOCK_MEDIUM_AND_ABOVE"
+  HARM_CATEGORY_SEXUALLY_EXPLICIT: "BLOCK_MEDIUM_AND_ABOVE"
+  HARM_CATEGORY_DANGEROUS_CONTENT: "BLOCK_MEDIUM_AND_ABOVE"
+
+# Generation parameters
+generation_params:
+  temperature: 0.7  # Creativity (0=deterministic, 1=random)
+  max_tokens: 4096  # Max response length (increase for thinking models)
+  top_p: 0.95
+  # image  mat 50%, floor 20% couch10%, roof10%....
+  top_k: 40
+  # Optional Gemini tool calls (uncomment as needed):
+  # tools:
+  #   - google_search: {}
+  #   - code_execution: {}
+  # tool_config:
+  #   function_calling_config:
+  #     mode: AUTO
+
+# Paths for artifacts and prompts
+paths:
+  api_key_env: "GEMINI_API_KEY"  # Environment variable name
+  runs_dir: "runs"
+  prompt_config_dir: "configs/prompts"
+
+# Artifact filenames
+artifacts:
+  response_file: "response.txt"
+  metadata_file: "metadata.json"
+  params_file: "params.json"
+  bundle_info_file: "bundle_info.json"

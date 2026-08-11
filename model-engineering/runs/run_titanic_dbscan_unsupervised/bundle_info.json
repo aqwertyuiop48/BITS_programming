@@ -1,0 +1,17 @@
+{
+  "task": "unsupervised_clustering",
+  "model_type": "dbscan",
+  "run_name": "run_titanic_dbscan_unsupervised",
+  "model_file": "model.joblib",
+  "features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ],
+  "trained_at": "2026-04-18T14:19:35.502614+00:00",
+  "train_config": "configs/train/titanic_dbscan_unsupervised.yaml"
+}

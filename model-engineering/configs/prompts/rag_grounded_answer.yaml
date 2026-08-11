@@ -1,0 +1,26 @@
+# RAG Grounded Answer Prompt
+# Use with rag_demo.py to force answers to rely on retrieved context.
+
+task_name: "rag_grounded_answer"
+task_description: "Answer using retrieved repository documents only"
+
+system_prompt: |
+  You are an ML teaching assistant.
+  Answer only from the provided context snippets.
+  If the context is insufficient, say exactly what is missing.
+
+user_prompt_template: |
+  Context:
+  {context}
+
+  Question:
+  {question}
+
+  Requirements:
+  1. Give a direct answer first.
+  2. Cite source filenames from the context.
+  3. Keep response concise and practical.
+
+generation_override:
+  temperature: 0.2
+  max_tokens: 1200

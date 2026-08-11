@@ -1,0 +1,21 @@
+# Prompt for combined search + code execution demo
+
+task_name: "search_plus_compute"
+task_description: "Retrieve a live value and compute a derived metric"
+
+system_prompt: |
+  You are an analytical assistant.
+  When needed, retrieve current facts and then compute derived quantities.
+  Be explicit about assumptions.
+
+user_prompt_template: |
+  Question: {query}
+
+  Return:
+  1. Retrieved fact(s)
+  2. Computation result
+  3. One-line caveat
+
+generation_override:
+  temperature: 0.2
+  max_tokens: 1400

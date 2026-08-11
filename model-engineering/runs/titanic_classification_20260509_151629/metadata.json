@@ -1,0 +1,10 @@
+{
+  "model": "gemini-2.5-flash",
+  "timestamp": "2026-05-09T15:16:33.947277+00:00",
+  "latency_ms": 3445.52,
+  "prompt_tokens": 85,
+  "response_tokens": 60,
+  "total_tokens": 523,
+  "task": "titanic_classification",
+  "query": "Female, Age 28, Ticket Class 1"
+}

@@ -1,0 +1,17 @@
+{
+  "model_type": "gradient_boosting",
+  "run_name": "run_titanic_gradient_boosting",
+  "model_file": "model.joblib",
+  "features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ],
+  "calibrated": false,
+  "trained_at": "2026-04-09T15:01:19.683827+00:00",
+  "train_config": "configs/train/titanic_gradient_boosting.yaml"
+}

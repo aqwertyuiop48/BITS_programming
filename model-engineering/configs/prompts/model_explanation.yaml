@@ -1,0 +1,23 @@
+# Model Explanation Prompt
+# Demonstrates how to ask LLM to explain ML concepts and model decisions
+
+task_name: "model_explanation"
+task_description: "Explain ML models for teaching purposes"
+
+system_prompt: |
+  You are an experienced ML instructor teaching students about machine learning models.
+  Explain concepts clearly with analogies, avoid heavy mathematics.
+  Focus on intuitive understanding.
+
+user_prompt_template: |
+  Explain: {concept}
+  
+  Structure your response:
+  1. Simple Analogy (2 sentences)
+  2. Key Idea (1-2 sentences)
+  3. Real-world Example (1-2 sentences)
+  4. When to Use It (1-2 sentences)
+
+generation_override:
+  temperature: 0.6
+  max_tokens: 2048

@@ -1,0 +1,7 @@
+dataset_path: data/processed/train.csv
+target_column: target
+test_size: 0.2
+random_state: 42
+# Which sklearn dataset to bootstrap when dataset_path does not exist.
+# Options: breast_cancer | wine | iris | synthetic
+bootstrap_dataset: breast_cancer
