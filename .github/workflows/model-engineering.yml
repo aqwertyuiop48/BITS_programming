@@ -98,25 +98,34 @@ jobs:
           python token_budget_report.py
 
       - name: Optional LLM demo (requires GEMINI_API_KEY)
-        if: ${{ secrets.GEMINI_API_KEY != '' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/titanic_classification.yaml --query "Female, Age 28, Ticket Class 1" --budget-mode low
+          if [ -n "$GEMINI_API_KEY" ]; then
+            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/titanic_classification.yaml --query "Female, Age 28, Ticket Class 1" --budget-mode low
+          else
+            echo "Skipping LLM demo because GEMINI_API_KEY is not set"
+          fi
 
       - name: Optional RAG demo (requires GEMINI_API_KEY)
-        if: ${{ secrets.GEMINI_API_KEY != '' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
+          if [ -n "$GEMINI_API_KEY" ]; then
+            python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
+          else
+            echo "Skipping RAG demo because GEMINI_API_KEY is not set"
+          fi
 
       - name: "Optional: Run training with legacy file-store (opt-in)"
-        if: ${{ secrets.MLFLOW_ALLOW_FILE_STORE == 'true' }}
         env:
-          MLFLOW_ALLOW_FILE_STORE: 'true'
+          MLFLOW_ALLOW_FILE_STORE: ${{ secrets.MLFLOW_ALLOW_FILE_STORE }}
         run: |
-          MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo --mlflow-register-model --mlflow-model-name titanic_survival_rf
+          if [ "$MLFLOW_ALLOW_FILE_STORE" = "true" ]; then
+            MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo --mlflow-register-model --mlflow-model-name titanic_survival_rf
+          else
+            echo "Skipping legacy file-store MLflow run because MLFLOW_ALLOW_FILE_STORE is not true"
+          fi
 
       - name: Upload runs directory (artifact)
         if: always()
