@@ -1,0 +1,126 @@
+name: Model Engineering CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create Titanic sample data
+        run: |
+          python make_titanic_demo_data.py
+
+      - name: Prepare Titanic training data
+        run: |
+          python prepare_data.py \
+            --input-csv data/raw/titanic_train.csv \
+            --output-csv data/processed/titanic_bakeoff_train_1.csv \
+            --target-col target \
+            --rename-target-from Survived \
+            --drop-columns PassengerId,Name,Ticket,Cabin
+
+      - name: Prepare Titanic inference data
+        run: |
+          python prepare_data.py \
+            --input-csv data/raw/titanic_inference.csv \
+            --output-csv data/processed/titanic_inference_input.csv \
+            --target-col target \
+            --drop-columns PassengerId,Name,Ticket,Cabin \
+            --allow-missing-target
+
+      - name: Train baseline pipeline
+        run: |
+          python train.py --config configs/train/default.yaml
+
+      - name: Train all supervised Titanic configs
+        run: |
+          python train.py --config configs/train/titanic_decision_tree.yaml
+          python train.py --config configs/train/titanic_gradient_boosting.yaml
+          python train.py --config configs/train/titanic_svm.yaml
+          python train.py --config configs/train/titanic_all_features.yaml
+          python train.py --config configs/train/titanic_selected_features.yaml
+          python train.py --config configs/train/titanic_pca_features.yaml
+          python train.py --config configs/train/titanic_random_forest.yaml
+
+      - name: Train deep demos (SQLite MLflow)
+        run: |
+          python train_deep.py --config configs/train/digits_cnn.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
+          python train_deep.py --config configs/train/timeseries_rnn.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
+          python train_deep.py --config configs/train/timeseries_lstm.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
+          python train_deep.py --config configs/train/timeseries_gru.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
+
+      - name: Train unsupervised clustering configs
+        run: |
+          python train_unsupervised.py --config configs/train/titanic_kmeans_unsupervised.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-unsupervised
+          python train_unsupervised.py --config configs/train/titanic_dbscan_unsupervised.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-unsupervised
+
+      - name: Evaluate Titanic run (SQLite MLflow)
+        run: |
+          python evaluate.py --run-dir runs/run_titanic_random_forest --target-col target --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-evaluation
+
+      - name: Run Titanic inference
+        run: |
+          python predict.py --run-dir runs/run_titanic_random_forest --input-csv data/processed/titanic_inference_input.csv
+
+      - name: Run baseline inference
+        run: |
+          python predict.py --run-dir runs/run_001 --input-csv data/processed/inference_input.csv
+
+      - name: Smoke test
+        run: |
+          python smoke_test.py
+
+      - name: Print leaderboard
+        run: |
+          python leaderboard.py
+
+      - name: Token budget report
+        run: |
+          python token_budget_report.py
+
+      - name: Optional LLM demo (requires GEMINI_API_KEY)
+        if: ${{ secrets.GEMINI_API_KEY != '' }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/titanic_classification.yaml --query "Female, Age 28, Ticket Class 1" --budget-mode low
+
+      - name: Optional RAG demo (requires GEMINI_API_KEY)
+        if: ${{ secrets.GEMINI_API_KEY != '' }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
+
+      - name: Optional: Run training with legacy file-store (opt-in)
+        if: ${{ secrets.MLFLOW_ALLOW_FILE_STORE == 'true' }}
+        env:
+          MLFLOW_ALLOW_FILE_STORE: 'true'
+        run: |
+          MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo --mlflow-register-model --mlflow-model-name titanic_survival_rf
+
+      - name: Upload runs directory (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: runs
+          path: runs/

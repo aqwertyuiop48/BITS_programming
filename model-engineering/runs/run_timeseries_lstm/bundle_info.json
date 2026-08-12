@@ -1,0 +1,14 @@
+{
+  "model_type": "lstm",
+  "run_name": "run_timeseries_lstm",
+  "model_file": "model.pt",
+  "dataset_name": "timeseries",
+  "framing": "sequence",
+  "input_shape": [
+    64,
+    1
+  ],
+  "num_classes": 4,
+  "trained_at": "2026-08-12T08:39:57.380380+00:00",
+  "train_config": "configs/train/timeseries_lstm.yaml"
+}

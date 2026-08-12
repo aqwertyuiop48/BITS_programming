@@ -9,6 +9,6 @@
     1
   ],
   "num_classes": 4,
-  "trained_at": "2026-04-25T14:51:13.363841+00:00",
-  "train_config": ".\\configs\\train\\timeseries_rnn.yaml"
+  "trained_at": "2026-08-12T08:39:40.824475+00:00",
+  "train_config": "configs/train/timeseries_rnn.yaml"
 }

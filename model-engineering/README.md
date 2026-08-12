@@ -89,6 +89,12 @@ python evaluate.py --run-dir runs/run_001
 ```bash
 python predict.py --run-dir runs/run_001 --input-csv data/processed/inference_input.csv
 ```
+or
+```bash
+python train.py --config configs/train/titanic_random_forest.yaml
+
+python predict.py --run-dir runs/run_titanic_random_forest --input-csv data/processed/titanic_inference_input.csv
+```
 
 6. Run a pipeline smoke test:
 
