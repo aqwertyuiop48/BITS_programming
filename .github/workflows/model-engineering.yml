@@ -21,15 +21,18 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
+        working-directory: ./model-engineering
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Create Titanic sample data
+        working-directory: ./model-engineering
         run: |
           python make_titanic_demo_data.py
 
       - name: Prepare Titanic training data
+        working-directory: ./model-engineering
         run: |
           python prepare_data.py \
             --input-csv data/raw/titanic_train.csv \
@@ -39,6 +42,7 @@ jobs:
             --drop-columns PassengerId,Name,Ticket,Cabin
 
       - name: Prepare Titanic inference data
+        working-directory: ./model-engineering
         run: |
           python prepare_data.py \
             --input-csv data/raw/titanic_inference.csv \
@@ -48,10 +52,12 @@ jobs:
             --allow-missing-target
 
       - name: Train baseline pipeline
+        working-directory: ./model-engineering
         run: |
           python train.py --config configs/train/default.yaml
 
       - name: Train all supervised Titanic configs
+        working-directory: ./model-engineering
         run: |
           python train.py --config configs/train/titanic_decision_tree.yaml
           python train.py --config configs/train/titanic_gradient_boosting.yaml
@@ -62,6 +68,7 @@ jobs:
           python train.py --config configs/train/titanic_random_forest.yaml
 
       - name: Train deep demos (SQLite MLflow)
+        working-directory: ./model-engineering
         run: |
           python train_deep.py --config configs/train/digits_cnn.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
           python train_deep.py --config configs/train/timeseries_rnn.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
@@ -69,35 +76,43 @@ jobs:
           python train_deep.py --config configs/train/timeseries_gru.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-deep
 
       - name: Train unsupervised clustering configs
+        working-directory: ./model-engineering
         run: |
           python train_unsupervised.py --config configs/train/titanic_kmeans_unsupervised.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-unsupervised
           python train_unsupervised.py --config configs/train/titanic_dbscan_unsupervised.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-unsupervised
 
       - name: Evaluate Titanic run (SQLite MLflow)
+        working-directory: ./model-engineering
         run: |
           python evaluate.py --run-dir runs/run_titanic_random_forest --target-col target --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-evaluation
 
       - name: Run Titanic inference
+        working-directory: ./model-engineering
         run: |
           python predict.py --run-dir runs/run_titanic_random_forest --input-csv data/processed/titanic_inference_input.csv
 
       - name: Run baseline inference
+        working-directory: ./model-engineering
         run: |
           python predict.py --run-dir runs/run_001 --input-csv data/processed/inference_input.csv
 
       - name: Smoke test
+        working-directory: ./model-engineering
         run: |
           python smoke_test.py
 
       - name: Print leaderboard
+        working-directory: ./model-engineering
         run: |
           python leaderboard.py
 
       - name: Token budget report
+        working-directory: ./model-engineering
         run: |
           python token_budget_report.py
 
       - name: Optional LLM demo (requires GEMINI_API_KEY)
+        working-directory: ./model-engineering
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -108,6 +123,7 @@ jobs:
           fi
 
       - name: Optional RAG demo (requires GEMINI_API_KEY)
+        working-directory: ./model-engineering
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -118,6 +134,7 @@ jobs:
           fi
 
       - name: "Optional: Run training with legacy file-store (opt-in)"
+        working-directory: ./model-engineering
         env:
           MLFLOW_ALLOW_FILE_STORE: ${{ secrets.MLFLOW_ALLOW_FILE_STORE }}
         run: |
