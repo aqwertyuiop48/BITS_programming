@@ -111,7 +111,7 @@ jobs:
         run: |
           python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
 
-      - name: Optional: Run training with legacy file-store (opt-in)
+      - name: "Optional: Run training with legacy file-store (opt-in)"
         if: ${{ secrets.MLFLOW_ALLOW_FILE_STORE == 'true' }}
         env:
           MLFLOW_ALLOW_FILE_STORE: 'true'
