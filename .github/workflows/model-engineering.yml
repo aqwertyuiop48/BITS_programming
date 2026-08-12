@@ -91,11 +91,6 @@ jobs:
         run: |
           python predict.py --run-dir runs/run_titanic_random_forest --input-csv data/processed/titanic_inference_input.csv
 
-      - name: Run baseline inference
-        working-directory: ./model-engineering
-        run: |
-          python predict.py --run-dir runs/run_001 --input-csv data/processed/titanic_inference_input.csv
-
       - name: Smoke test
         working-directory: ./model-engineering
         run: |
