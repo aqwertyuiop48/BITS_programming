@@ -2,7 +2,7 @@
 # Purpose: Configure Gemini API access for prompt engineering and LLM demonstrations
 # Free tier: https://ai.google.dev/
 
-model_name: "gemini-2.0-flash"  # Free tier model for teaching (updated: gemini-2.5-flash deprecated)
+model_name: "gemini-3.6-flash"  # Free tier model for teaching (updated: gemini-2.5-flash deprecated)
 
 # Safety settings for classroom-appropriate responses
 safety_settings:
