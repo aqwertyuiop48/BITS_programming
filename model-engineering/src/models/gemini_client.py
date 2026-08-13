@@ -69,31 +69,21 @@ class GeminiClient:
             max_tokens: Maximum response length
             safety_settings: Safety configuration dict
         """
-        if api_key:
-            self.api_keys = [api_key]
-        else:
-            candidate_names = ["GEMINI_API_KEY", "GEMINI_API_KEY_1", "GEMINI_API_KEY_2", "GEMINI_API_KEY_3"]
-            self.api_keys = []
-            for env_name in candidate_names:
-                value = os.getenv(env_name) or self._load_api_key_from_dotenv(env_name)
-                if value and value not in self.api_keys:
-                    self.api_keys.append(value)
-            if not self.api_keys:
-                raise ValueError(
-                    "No Gemini API key found in GEMINI_API_KEY, GEMINI_API_KEY_1, "
-                    "GEMINI_API_KEY_2, or GEMINI_API_KEY_3. Get free key at https://ai.google.dev/"
-                )
+        self.api_key = api_key or os.getenv("GEMINI_API_KEY") or self._load_api_key_from_dotenv()
+        if not self.api_key:
+            raise ValueError(
+                "GEMINI_API_KEY not provided and not set in environment. "
+                "Get free key at https://ai.google.dev/"
+            )
 
-        self.api_key = self.api_keys[0]
-        self._key_index = 0
         self.client = genai.Client(api_key=self.api_key)
         self.model_name = model_name
         self.temperature = temperature
         self.max_tokens = max_tokens
 
     @staticmethod
-    def _load_api_key_from_dotenv(env_name: str = "GEMINI_API_KEY") -> str | None:
-        """Load a specific Gemini key from project-level .env file when available."""
+    def _load_api_key_from_dotenv() -> str | None:
+        """Load GEMINI_API_KEY from project-level .env file when available."""
         # Project root is two levels above this file: src/models/gemini_client.py
         dotenv_path = Path(__file__).resolve().parents[2] / ".env"
         if not dotenv_path.exists():
@@ -103,17 +93,10 @@ class GeminiClient:
             stripped = line.strip()
             if not stripped or stripped.startswith("#"):
                 continue
-            if stripped.startswith(f"{env_name}="):
+            if stripped.startswith("GEMINI_API_KEY="):
                 value = stripped.split("=", 1)[1].strip().strip('"').strip("'")
                 return value or None
         return None
-
-    def _rotate_to_next_key(self) -> None:
-        """Switch to the next configured API key for the current client instance."""
-        if self._key_index < len(self.api_keys) - 1:
-            self._key_index += 1
-            self.api_key = self.api_keys[self._key_index]
-            self.client = genai.Client(api_key=self.api_key)
 
     @staticmethod
     def _default_safety_settings() -> dict:
@@ -165,19 +148,6 @@ class GeminiClient:
             "grounding_metadata": grounding_metadata,
         }
 
-    @staticmethod
-    def _is_rate_limit_error(error: Exception) -> bool:
-        """Detect Gemini 429 quota/rate-limit failures."""
-        text = str(error).lower()
-        return any(token in text for token in [
-            "429",
-            "resource_exhausted",
-            "rate_limit_exceeded",
-            "quota exceeded",
-            "quota_limit",
-            "too many requests",
-        ])
-
     def generate(
         self,
         prompt: str,
@@ -217,80 +187,59 @@ class GeminiClient:
         temp = temperature if temperature is not None else self.temperature
         max_toks = max_tokens if max_tokens is not None else self.max_tokens
 
-        # Call API with timing, retrying transient 429 quota errors with backoff.
+        # Call API with timing
         start_time = time.time()
-        last_error: Exception | None = None
-        for attempt in range(1, 7):
-            try:
-                config_kwargs: dict = {
-                    "temperature": temp,
-                    "max_output_tokens": max_toks,
-                }
-                if tools:
-                    config_kwargs["tools"] = tools
-                if tool_config:
-                    config_kwargs["tool_config"] = tool_config
+        try:
+            config_kwargs: dict = {
+                "temperature": temp,
+                "max_output_tokens": max_toks,
+            }
+            if tools:
+                config_kwargs["tools"] = tools
+            if tool_config:
+                config_kwargs["tool_config"] = tool_config
 
-                response = self.client.models.generate_content(
-                    model=self.model_name,
-                    contents=contents,
-                    config=types.GenerateContentConfig(**config_kwargs),
-                )
-                latency_ms = (time.time() - start_time) * 1000
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=contents,
+                config=types.GenerateContentConfig(**config_kwargs),
+            )
+            latency_ms = (time.time() - start_time) * 1000
 
-                # Extract response text
-                response_text = response.text if response.text else "[No response]"
+            # Extract response text
+            response_text = response.text if response.text else "[No response]"
 
-                # Extract token usage metadata when available
-                prompt_tokens = None
-                response_tokens = None
-                total_tokens = None
-                if hasattr(response, "usage_metadata") and response.usage_metadata:
-                    usage = response.usage_metadata
-                    prompt_tokens = getattr(usage, "prompt_token_count", None)
-                    response_tokens = getattr(usage, "candidates_token_count", None)
-                    total_tokens = getattr(usage, "total_token_count", None)
+            # Extract token usage metadata when available
+            prompt_tokens = None
+            response_tokens = None
+            total_tokens = None
+            if hasattr(response, "usage_metadata") and response.usage_metadata:
+                usage = response.usage_metadata
+                prompt_tokens = getattr(usage, "prompt_token_count", None)
+                response_tokens = getattr(usage, "candidates_token_count", None)
+                total_tokens = getattr(usage, "total_token_count", None)
 
-                tool_usage = self._extract_tool_usage(response)
+            tool_usage = self._extract_tool_usage(response)
 
-                return GeminiResponse(
-                    text=response_text,
-                    prompt_tokens=prompt_tokens,
-                    response_tokens=response_tokens,
-                    total_tokens=total_tokens,
-                    latency_ms=round(latency_ms, 2),
-                    model=self.model_name,
-                    timestamp=datetime.now(timezone.utc).isoformat(),
-                    tool_usage=tool_usage,
-                )
+            return GeminiResponse(
+                text=response_text,
+                prompt_tokens=prompt_tokens,
+                response_tokens=response_tokens,
+                total_tokens=total_tokens,
+                latency_ms=round(latency_ms, 2),
+                model=self.model_name,
+                timestamp=datetime.now(timezone.utc).isoformat(),
+                tool_usage=tool_usage,
+            )
 
-            except Exception as e:
-                last_error = e
-                if self._is_rate_limit_error(e):
-                    if self._key_index < len(self.api_keys) - 1:
-                        backoff_seconds = min(30, 2 ** (attempt - 1))
-                        time.sleep(backoff_seconds)
-                        self._rotate_to_next_key()
-                        continue
-                    if attempt < 6:
-                        backoff_seconds = min(30, 2 ** (attempt - 1))
-                        time.sleep(backoff_seconds)
-                        continue
-                error_msg = f"Gemini API Error: {str(e)}"
-                return GeminiResponse(
-                    text=error_msg,
-                    latency_ms=round((time.time() - start_time) * 1000, 2),
-                    model=self.model_name,
-                    timestamp=datetime.now(timezone.utc).isoformat(),
-                )
-
-        error_msg = f"Gemini API Error: {str(last_error) if last_error else 'Unknown error'}"
-        return GeminiResponse(
-            text=error_msg,
-            latency_ms=round((time.time() - start_time) * 1000, 2),
-            model=self.model_name,
-            timestamp=datetime.now(timezone.utc).isoformat(),
-        )
+        except Exception as e:
+            error_msg = f"Gemini API Error: {str(e)}"
+            return GeminiResponse(
+                text=error_msg,
+                latency_ms=round((time.time() - start_time) * 1000, 2),
+                model=self.model_name,
+                timestamp=datetime.now(timezone.utc).isoformat(),
+            )
 
     def generate_with_examples(
         self,

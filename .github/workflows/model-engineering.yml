@@ -1,10 +1,10 @@
 name: Model Engineering CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -167,11 +167,12 @@ jobs:
           fi
 
 
-      - name: Test unused LLM configs 2 (requires GEMINI_API_KEY)
+      - name: Test unused LLM configs (requires GEMINI_API_KEY)
         working-directory: ./model-engineering
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_2 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
+          sleep 20
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM config tests to avoid rate limiting..."
             sleep 50
