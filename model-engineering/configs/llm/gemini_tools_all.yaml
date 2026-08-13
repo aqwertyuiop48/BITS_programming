@@ -1,6 +1,6 @@
 # Gemini config for combined tool-call demos (search + code execution)
 
-model_name: "gemini-3.6-flash"
+model_name: "gemini-3.5-flash"
 
 generation_params:
   temperature: 0.3
