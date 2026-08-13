@@ -1,6 +1,6 @@
 # Gemini config for search-only tool-call demos
 
-model_name: "gemini-3.5-flash"
+model_name: "gemini-3.6-flash"
 
 generation_params:
   temperature: 0.4
@@ -11,7 +11,11 @@ generation_params:
     - google_search: {}
 
 paths:
-  api_key_env: "GEMINI_API_KEY"
+  api_key_env:
+    - "GEMINI_API_KEY"
+    - "GEMINI_API_KEY_1"
+    - "GEMINI_API_KEY_2"
+    - "GEMINI_API_KEY_3"
   runs_dir: "runs"
   prompt_config_dir: "configs/prompts"
 

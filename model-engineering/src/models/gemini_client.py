@@ -69,12 +69,21 @@ class GeminiClient:
             max_tokens: Maximum response length
             safety_settings: Safety configuration dict
         """
-        self.api_key = api_key or os.getenv("GEMINI_API_KEY") or self._load_api_key_from_dotenv()
-        if not self.api_key:
-            raise ValueError(
-                "GEMINI_API_KEY not provided and not set in environment. "
-                "Get free key at https://ai.google.dev/"
-            )
+        if api_key:
+            self.api_key = api_key
+        else:
+            candidate_names = ["GEMINI_API_KEY", "GEMINI_API_KEY_1", "GEMINI_API_KEY_2", "GEMINI_API_KEY_3"]
+            self.api_key = None
+            for env_name in candidate_names:
+                value = os.getenv(env_name) or self._load_api_key_from_dotenv(env_name)
+                if value:
+                    self.api_key = value
+                    break
+            if not self.api_key:
+                raise ValueError(
+                    "No Gemini API key found in GEMINI_API_KEY, GEMINI_API_KEY_1, "
+                    "GEMINI_API_KEY_2, or GEMINI_API_KEY_3. Get free key at https://ai.google.dev/"
+                )
 
         self.client = genai.Client(api_key=self.api_key)
         self.model_name = model_name
@@ -82,8 +91,8 @@ class GeminiClient:
         self.max_tokens = max_tokens
 
     @staticmethod
-    def _load_api_key_from_dotenv() -> str | None:
-        """Load GEMINI_API_KEY from project-level .env file when available."""
+    def _load_api_key_from_dotenv(env_name: str = "GEMINI_API_KEY") -> str | None:
+        """Load a specific Gemini key from project-level .env file when available."""
         # Project root is two levels above this file: src/models/gemini_client.py
         dotenv_path = Path(__file__).resolve().parents[2] / ".env"
         if not dotenv_path.exists():
@@ -93,7 +102,7 @@ class GeminiClient:
             stripped = line.strip()
             if not stripped or stripped.startswith("#"):
                 continue
-            if stripped.startswith("GEMINI_API_KEY="):
+            if stripped.startswith(f"{env_name}="):
                 value = stripped.split("=", 1)[1].strip().strip('"').strip("'")
                 return value or None
         return None

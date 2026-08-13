@@ -2,7 +2,7 @@
 # Purpose: Configure Gemini API access for prompt engineering and LLM demonstrations
 # Free tier: https://ai.google.dev/
 
-model_name: "gemini-3.5-flash"  # Free tier model for teaching (updated: gemini-3.6-flash deprecated)
+model_name: "gemini-3.6-flash"  # Free tier model for teaching (updated: gemini-3.6-flash deprecated)
 
 # Safety settings for classroom-appropriate responses
 safety_settings:
@@ -27,8 +27,13 @@ generation_params:
   #     mode: AUTO
 
 # Paths for artifacts and prompts
+# Keep the default as a fallback chain so multiple Gemini keys can be tried in order.
 paths:
-  api_key_env: "GEMINI_API_KEY"  # Environment variable name
+  api_key_env:
+    - "GEMINI_API_KEY"
+    - "GEMINI_API_KEY_1"
+    - "GEMINI_API_KEY_2"
+    - "GEMINI_API_KEY_3"
   runs_dir: "runs"
   prompt_config_dir: "configs/prompts"
 
