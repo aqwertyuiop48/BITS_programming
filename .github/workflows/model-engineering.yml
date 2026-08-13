@@ -84,6 +84,8 @@ jobs:
       - name: Evaluate Titanic run (SQLite MLflow)
         working-directory: ./model-engineering
         run: |
+          echo "Waiting before evaluation to avoid rate limiting..."
+          sleep 10
           python evaluate.py --run-dir runs/run_titanic_random_forest --target-col target --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo-evaluation
 
       - name: Run Titanic inference
@@ -112,6 +114,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
+            echo "Waiting before LLM demo to avoid rate limiting..."
+            sleep 15
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/titanic_classification.yaml --query "Female, Age 28, Ticket Class 1" --budget-mode low
           else
             echo "Skipping LLM demo because GEMINI_API_KEY is not set"
@@ -123,6 +127,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
+            echo "Waiting before RAG demo to avoid rate limiting..."
+            sleep 15
             python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
           else
             echo "Skipping RAG demo because GEMINI_API_KEY is not set"
@@ -134,7 +140,7 @@ jobs:
           MLFLOW_ALLOW_FILE_STORE: ${{ secrets.MLFLOW_ALLOW_FILE_STORE }}
         run: |
           if [ "$MLFLOW_ALLOW_FILE_STORE" = "true" ]; then
-            MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo --mlflow-register-model --mlflow-model-name titanic_survival_rf
+            MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo --mlflow-[...]
           else
             echo "Skipping legacy file-store MLflow run because MLFLOW_ALLOW_FILE_STORE is not true"
           fi
@@ -153,11 +159,18 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
+            echo "Waiting before LLM config tests to avoid rate limiting..."
+            sleep 15
             python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
+            sleep 10
             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
+            sleep 10
             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
+            sleep 10
             python llm_demo.py --config configs/llm/gemini_tools_all.yaml --prompt-config configs/prompts/general_assistant.yaml --query "explain machine learning" --budget-mode low
+            sleep 10
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/model_explanation.yaml --query "explain random forest" --budget-mode low
+            sleep 10
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/code_review.yaml --query "review this code" --budget-mode low
           else
             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
