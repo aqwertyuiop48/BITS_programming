@@ -111,11 +111,11 @@ jobs:
       - name: Optional LLM demo (requires GEMINI_API_KEY)
         working-directory: ./model-engineering
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_1 }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM demo to avoid rate limiting..."
-            sleep 15
+            sleep 30
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/titanic_classification.yaml --query "Female, Age 28, Ticket Class 1" --budget-mode low
           else
             echo "Skipping LLM demo because GEMINI_API_KEY is not set"
@@ -124,11 +124,11 @@ jobs:
       - name: Optional RAG demo (requires GEMINI_API_KEY)
         working-directory: ./model-engineering
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_2 }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before RAG demo to avoid rate limiting..."
-            sleep 15
+            sleep 30
             python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
           else
             echo "Skipping RAG demo because GEMINI_API_KEY is not set"
@@ -153,28 +153,28 @@ jobs:
           jupyter nbconvert --to notebook --execute notebooks/02_feature_experiments.ipynb --output-dir notebooks/
           jupyter nbconvert --to notebook --execute notebooks/03_supervised_learning_experiment_tracking.ipynb --output-dir notebooks/
 
-      - name: Test unused LLM configs (requires GEMINI_API_KEY)
-        working-directory: ./model-engineering
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          if [ -n "$GEMINI_API_KEY" ]; then
-            echo "Waiting before LLM config tests to avoid rate limiting..."
-            sleep 15
-            python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
-            sleep 10
-            python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
-            sleep 10
-            python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
-            sleep 10
-            python llm_demo.py --config configs/llm/gemini_tools_all.yaml --prompt-config configs/prompts/general_assistant.yaml --query "explain machine learning" --budget-mode low
-            sleep 10
-            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/model_explanation.yaml --query "explain random forest" --budget-mode low
-            sleep 10
-            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/code_review.yaml --query "review this code" --budget-mode low
-          else
-            echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
-          fi
+      # - name: Test unused LLM configs (requires GEMINI_API_KEY)
+      #   working-directory: ./model-engineering
+      #   env:
+      #     GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      #   run: |
+      #     if [ -n "$GEMINI_API_KEY" ]; then
+      #       echo "Waiting before LLM config tests to avoid rate limiting..."
+      #       sleep 15
+      #       python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
+      #       sleep 10
+      #       python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
+      #       sleep 10
+      #       python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
+      #       sleep 10
+      #       python llm_demo.py --config configs/llm/gemini_tools_all.yaml --prompt-config configs/prompts/general_assistant.yaml --query "explain machine learning" --budget-mode low
+      #       sleep 10
+      #       python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/model_explanation.yaml --query "explain random forest" --budget-mode low
+      #       sleep 10
+      #       python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/code_review.yaml --query "review this code" --budget-mode low
+      #     else
+      #       echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
+      #     fi
 
       - name: Upload runs directory (artifact)
         if: always()
