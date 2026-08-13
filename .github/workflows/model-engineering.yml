@@ -162,6 +162,8 @@ jobs:
             echo "Waiting before LLM config tests to avoid rate limiting..."
             sleep 50
             python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
+            sleep 50
+            python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
           else
             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
           fi
@@ -175,8 +177,6 @@ jobs:
           sleep 20
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM config tests to avoid rate limiting..."
-            sleep 50
-            python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
             sleep 50
             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
           else
