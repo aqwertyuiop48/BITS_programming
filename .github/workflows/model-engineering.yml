@@ -115,7 +115,7 @@ jobs:
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM demo to avoid rate limiting..."
-            sleep 30
+            sleep 50
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/titanic_classification.yaml --query "Female, Age 28, Ticket Class 1" --budget-mode low
           else
             echo "Skipping LLM demo because GEMINI_API_KEY is not set"
@@ -128,7 +128,7 @@ jobs:
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before RAG demo to avoid rate limiting..."
-            sleep 30
+            sleep 50
             python rag_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/rag_grounded_answer.yaml --query "Explain the Titanic demo workflow" --budget-mode low
           else
             echo "Skipping RAG demo because GEMINI_API_KEY is not set"
@@ -160,11 +160,11 @@ jobs:
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM config tests to avoid rate limiting..."
-            sleep 25
+            sleep 50
             python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
-            sleep 30
+            sleep 50
             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
-            sleep 30
+            sleep 50
             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
           else
             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
@@ -177,11 +177,11 @@ jobs:
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM config tests to avoid rate limiting..."
-            sleep 30
+            sleep 50
             python llm_demo.py --config configs/llm/gemini_tools_all.yaml --prompt-config configs/prompts/general_assistant.yaml --query "explain machine learning" --budget-mode low
-            sleep 30
+            sleep 50
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/model_explanation.yaml --query "explain random forest" --budget-mode low
-            sleep 30
+            sleep 50
             python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/code_review.yaml --query "review this code" --budget-mode low
           else
             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
