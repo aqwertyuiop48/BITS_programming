@@ -140,7 +140,7 @@ jobs:
           MLFLOW_ALLOW_FILE_STORE: ${{ secrets.MLFLOW_ALLOW_FILE_STORE }}
         run: |
           if [ "$MLFLOW_ALLOW_FILE_STORE" = "true" ]; then
-            MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo --mlflow-[...]
+            MLFLOW_ALLOW_FILE_STORE=true python train.py --config configs/train/titanic_random_forest.yaml --mlflow --mlflow-tracking-uri sqlite:///mlflow.db --mlflow-experiment ml-demo
           else
             echo "Skipping legacy file-store MLflow run because MLFLOW_ALLOW_FILE_STORE is not true"
           fi
