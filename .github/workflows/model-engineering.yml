@@ -139,6 +139,30 @@ jobs:
             echo "Skipping legacy file-store MLflow run because MLFLOW_ALLOW_FILE_STORE is not true"
           fi
 
+      - name: Run Jupyter notebooks
+        working-directory: ./model-engineering
+        run: |
+          python -m pip install jupyter nbconvert
+          jupyter nbconvert --to notebook --execute notebooks/01_eda.ipynb --output-dir notebooks/
+          jupyter nbconvert --to notebook --execute notebooks/02_feature_experiments.ipynb --output-dir notebooks/
+          jupyter nbconvert --to notebook --execute notebooks/03_supervised_learning_experiment_tracking.ipynb --output-dir notebooks/
+
+      - name: Test unused LLM configs (requires GEMINI_API_KEY)
+        working-directory: ./model-engineering
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
+            python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
+            python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
+            python llm_demo.py --config configs/llm/gemini_tools_all.yaml --prompt-config configs/prompts/general_assistant.yaml --query "explain machine learning" --budget-mode low
+            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/model_explanation.yaml --query "explain random forest" --budget-mode low
+            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/code_review.yaml --query "review this code" --budget-mode low
+          else
+            echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
+          fi
+
       - name: Upload runs directory (artifact)
         if: always()
         uses: actions/upload-artifact@v4
