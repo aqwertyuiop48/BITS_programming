@@ -20,11 +20,17 @@ curl https://openrouter.ai/api/v1/chat/completions \  -H "Content-Type: applicat
 <pre>
 - Ollama:
     -   https://ollama.com/download/OllamaSetup.exe
-    -   ollama launch claude --model minimax-m3:cloud
+    -   ollama launch claude --model minimax-m3:cloud   (Can access local files / folders)
     -   To use other models:
         -   ollama pull qwen2.5-coder:7b
         -   ollama run qwen2.5-coder:7b "say hi"
 
+</pre>
+
+<pre>
+- Opencode:     (Can access local files / folders)
+  - npm install -g opencode-ai
+  - opencode
 </pre>
 
 
