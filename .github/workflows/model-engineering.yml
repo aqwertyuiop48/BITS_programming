@@ -181,7 +181,7 @@ jobs:
 #             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
 #           fi
 
-# # # search using lot of quota, hence getting 429 always
+# # search using lot of quota, hence getting 429 always
 #       - name: Test unused LLM configs (search 2) (requires GEMINI_API_KEY)
 #         working-directory: ./model-engineering
 #         env:
