@@ -1,0 +1,6 @@
+- Module 1: Applied AI Engineering Foundations (weeks 1-2)
+- Module 2: Data Engineering for AI Systems (weeks 3-6)
+- Module 3: Model Engineering (Classical + LLM) (weeks 7-15)
+- Module 4: AI Quality Engineering
+- Module 5: AI Platform Engineering
+- Module 6: Responsible and Cost-Optimised AI

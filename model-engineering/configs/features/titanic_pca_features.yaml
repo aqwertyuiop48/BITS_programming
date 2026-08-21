@@ -1,0 +1,7 @@
+# Dimensionality reduction: compress all features into 4 PCA components.
+# compact representation, loses interpretability of individual features.
+drop_columns: []
+scale_numeric: true
+one_hot_encode: true
+pca_enabled: true
+pca_n_components: 4

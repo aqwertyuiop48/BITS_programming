@@ -1,0 +1,4 @@
+model_type: dbscan
+params:
+  eps: 1.2
+  min_samples: 5

@@ -1,0 +1,5 @@
+model_type: cnn2d
+params:
+  channels_1: 16
+  channels_2: 32
+  dropout: 0.2

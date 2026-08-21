@@ -1,0 +1,34 @@
+# Classification Prompt for Teaching
+# Demonstrates prompt engineering: structured input/output, examples, step-by-step
+
+task_name: "titanic_classification"
+task_description: "Classify passenger survival likelihood (teaching example)"
+
+# System prompt: sets the LLM's role and context
+system_prompt: |
+  You are an AI model instructor explaining classification to students.
+  Analyze the given passenger information and predict if they would survive.
+  Be concise and educational.
+
+# Example for few-shot learning
+examples:
+  - passenger: "Male, Age 30, Ticket Class 3"
+    explanation: "Male, 3rd class passenger - higher mortality rate"
+    prediction: "Did not survive"
+  - passenger: "Female, Age 25, Ticket Class 1"
+    explanation: "Female, 1st class passenger - 'women and children first' policy"
+    prediction: "Survived"
+
+# User query template
+user_prompt_template: |
+  Predict survival for: {passenger_info}
+  
+  Respond with:
+  1. Explanation (one sentence)
+  2. Prediction (Survived/Did not survive)
+  3. Confidence (high/medium/low)
+
+# Parameters that override llm config
+generation_override:
+  temperature: 0.5  # Lower for deterministic predictions
+  max_tokens: 2048

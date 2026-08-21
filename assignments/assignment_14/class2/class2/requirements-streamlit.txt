@@ -1,0 +1,6 @@
+# Class 2 — Streamlit frontend dependencies
+# Run: pip install -r requirements-streamlit.txt
+
+streamlit==1.28.0
+requests==2.31.0
+Pillow==10.1.0

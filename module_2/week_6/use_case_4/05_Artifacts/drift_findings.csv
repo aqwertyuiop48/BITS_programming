@@ -1,0 +1,24 @@
+column_name,check_type,baseline_value,incoming_value,delta_or_pct,flag,comment
+gender,top_category_shift,Male,Female,,True,Top category changed between baseline and incoming batch.
+SeniorCitizen,mean_shift,0.1904,0.1923,0.0101,False,Review if the incoming distribution changes materially from training.
+Partner,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+Dependents,top_category_shift,Yes,Yes,,False,Top category unchanged between baseline and incoming batch.
+tenure,mean_shift,34.7269,35.7308,0.0289,False,Review if the incoming distribution changes materially from training.
+PhoneService,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+MultipleLines,top_category_shift,No phone service,No phone service,,False,Top category unchanged between baseline and incoming batch.
+InternetService,top_category_shift,Fiber optic,Fiber optic,,False,Top category unchanged between baseline and incoming batch.
+OnlineSecurity,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+OnlineBackup,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+DeviceProtection,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+TechSupport,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+StreamingTV,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+StreamingMovies,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+Contract,top_category_shift,Month-to-month,Month-to-month,,False,Top category unchanged between baseline and incoming batch.
+PaperlessBilling,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+PaymentMethod,top_category_shift,Electronic check,Electronic check,,False,Top category unchanged between baseline and incoming batch.
+MonthlyCharges,mean_shift,57.843,61.5462,0.064,False,Review if the incoming distribution changes materially from training.
+TotalCharges,mean_shift,2018.9125,2181.0825,0.0803,False,Review if the incoming distribution changes materially from training.
+Churn,top_category_shift,No,No,,False,Top category unchanged between baseline and incoming batch.
+is_new_customer,mean_shift,0.1058,0.1154,0.0909,False,Review if the incoming distribution changes materially from training.
+monthly_charge_band,top_category_shift,Medium,Medium,,False,Top category unchanged between baseline and incoming batch.
+avg_monthly_spend_gap,mean_shift,-30.9428,-76.3774,1.4683,True,Review if the incoming distribution changes materially from training.

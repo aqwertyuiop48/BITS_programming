@@ -57,3 +57,31 @@ Without this foundation, advanced topics like Kubeflow, Triton, drift detection,
 - Now click on the Module bucket with the name Applied AI Engineering Foundations
 - Recordings:
     - https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7062/topics/23758 
+
+
+# Assignments
+- https://lumen.bitspilani-digital.edu.in/d2l/lms/dropbox/user/folders_list.d2l?ou=7062&isprv=0
+
+- (TO DO) assignment_1 : week_2 : https://lumen.bitspilani-digital.edu.in/d2l/lms/dropbox/user/folder_submit_files.d2l?db=191&grpid=0&isprv=0&bp=0&ou=7062
+
+- assignment_2 : week_7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27659
+- assignment_3 : week_7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27658
+- assignment_4 : week_7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27667
+- assignment_5 : week_7: https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27668
+- assignment_6 : week_7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27665
+- assignment_7 : week_7 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/27666
+
+- assignment_8 : week_8 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/folders/28388
+- assignment_9 : week_11 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/37120
+- assignment_10 : week_13 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/37158
+- assignment_11 : week_15 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/41480
+- assignment_12 : week_15 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7064/topics/41057
+- assignment_13 : week_16 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7065/topics/43357
+- assignment_14 : week_17 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7065/topics/43358
+- assignment_15 : week_18 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7065/topics/43359
+- assignment_16 : week_19 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/43397
+- assignment_17 : week_20 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/43397
+- assignment_18 : week_21 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45757
+- assignment_19 : week_22 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45758
+- assignment_20 : week_23 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/46094
+- assignment_21 : week_25 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/47902

@@ -1,0 +1,16 @@
+run_name: run_timeseries_rnn
+seed: 42
+paths:
+  data_config: configs/data/timeseries.yaml
+  model_config: configs/models/timeseries_rnn.yaml
+  runs_dir: runs
+artifacts:
+  model_file: model.pt
+  metrics_file: metrics.json
+  params_file: params.json
+  predictions_file: predictions.csv
+training:
+  epochs: 20
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0

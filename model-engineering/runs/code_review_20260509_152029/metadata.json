@@ -1,0 +1,10 @@
+{
+  "model": "gemini-2.5-flash",
+  "timestamp": "2026-05-09T15:20:41.384049+00:00",
+  "latency_ms": 11198.3,
+  "prompt_tokens": 119,
+  "response_tokens": 911,
+  "total_tokens": 2086,
+  "task": "code_review",
+  "query": "def train(X, y):\\n    model = LogisticRegression()\\n    return model.fit(X, y)"
+}

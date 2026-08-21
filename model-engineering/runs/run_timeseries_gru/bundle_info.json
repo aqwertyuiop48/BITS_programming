@@ -1,0 +1,14 @@
+{
+  "model_type": "gru",
+  "run_name": "run_timeseries_gru",
+  "model_file": "model.pt",
+  "dataset_name": "timeseries",
+  "framing": "sequence",
+  "input_shape": [
+    64,
+    1
+  ],
+  "num_classes": 4,
+  "trained_at": "2026-08-12T08:40:14.635669+00:00",
+  "train_config": "configs/train/timeseries_gru.yaml"
+}

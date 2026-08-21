@@ -1,0 +1,47 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Packaging/build artifacts
+build/
+dist/
+*.egg-info/
+
+# Tool caches and test artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local editor/system files
+.vscode/
+.DS_Store
+Thumbs.db
+.env
+
+# Local run outputs (keep docs and placeholders)
+runs/**/model.joblib
+runs/**/predictions*.csv
+runs/**/metrics.json
+runs/**/evaluation_metrics.json
+runs/**/params.json
+runs/**/holdout.csv
+
+# Local demo knowledge base data
+demo_data/
+reports/demo_data/
+
+# MLflow local tracking artifacts
+mlruns/
+mlflow.db

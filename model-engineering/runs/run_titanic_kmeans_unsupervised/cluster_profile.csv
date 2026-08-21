@@ -1,0 +1,5 @@
+cluster,size,share,median_Pclass,median_Age,median_SibSp,median_Parch,median_Fare,median_target,mode_Sex,mode_Embarked
+0,87,0.435,3.0,30.0,0.0,0.0,9.5437,0.0,male,S
+1,46,0.23,1.0,25.0,0.0,0.0,70.11555,1.0,male,S
+2,36,0.18,3.0,25.0,1.0,0.0,9.2995,0.0,male,S
+3,31,0.155,3.0,28.5,0.0,2.0,10.5114,0.0,male,S

@@ -1,0 +1,17 @@
+{
+  "model_type": "random_forest",
+  "run_name": "run_titanic_random_forest",
+  "model_file": "model.joblib",
+  "features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ],
+  "calibrated": false,
+  "trained_at": "2026-08-12T08:38:21.077172+00:00",
+  "train_config": "configs/train/titanic_random_forest.yaml"
+}

@@ -1,0 +1,131 @@
+customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,Churn,label,is_new_customer,monthly_charge_band,avg_monthly_spend_gap
+7590-0001,Male,0,No,Yes,56,No,No phone service,DSL,No,No,No,No,No,Yes,Month-to-month,No,Electronic check,38.44,2128.4,No,0,0,Medium,-24.23999999999978
+7590-0004,Male,0,No,Yes,11,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Electronic check,19.42,161.12,No,0,0,Low,-52.5
+7590-0013,Male,0,No,No,47,No,No phone service,Fiber optic,Yes,No,Yes,No,Yes,Yes,Month-to-month,No,Electronic check,88.83,4201.81,Yes,1,0,High,26.800000000000182
+7590-0014,Male,0,No,No,66,No,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,No,Electronic check,43.99,2916.72,No,0,0,Medium,13.379999999999654
+7590-0020,Male,0,Yes,Yes,9,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Credit card (automatic),19.68,169.83,Yes,1,0,Low,-7.289999999999992
+7590-0021,Male,1,Yes,Yes,19,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Electronic check,18.0,318.61,Yes,1,0,Low,-23.389999999999986
+7590-0027,Female,1,Yes,Yes,63,No,No phone service,Fiber optic,Yes,Yes,No,Yes,No,No,Month-to-month,Yes,Credit card (automatic),80.56,5084.34,No,0,0,High,9.0600000000004
+7590-0032,Female,1,No,Yes,58,No,No phone service,DSL,No,Yes,No,Yes,No,Yes,Month-to-month,No,Credit card (automatic),58.87,3400.05,No,0,0,Medium,-14.409999999999854
+7590-0034,Female,0,Yes,No,43,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Electronic check,18.0,788.81,No,0,0,Low,14.809999999999945
+7590-0035,Male,0,No,Yes,30,No,No phone service,Fiber optic,Yes,No,Yes,Yes,Yes,No,Month-to-month,No,Bank transfer (automatic),73.03,2190.85,No,0,0,High,-0.0500000000001819
+7590-0040,Female,0,Yes,Yes,6,No,No phone service,Fiber optic,No,Yes,No,No,Yes,Yes,Month-to-month,Yes,Mailed check,74.24,437.03,Yes,1,1,High,-8.409999999999968
+7590-0047,Male,0,Yes,Yes,10,No,No phone service,Fiber optic,No,Yes,Yes,No,No,No,Two year,Yes,Electronic check,72.06,724.07,No,0,0,High,3.4700000000000273
+7590-0052,Female,0,No,Yes,51,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Bank transfer (automatic),39.07,1986.63,No,0,0,Medium,-5.939999999999827
+7590-0058,Female,0,Yes,Yes,50,No,No phone service,DSL,No,No,No,Yes,No,Yes,One year,Yes,Electronic check,53.41,2664.24,No,0,0,Medium,-6.260000000000218
+7590-0062,Male,0,No,Yes,28,No,No phone service,DSL,Yes,No,Yes,No,Yes,No,Month-to-month,No,Credit card (automatic),62.43,1718.62,No,0,0,Medium,-29.420000000000073
+7590-0064,Female,0,Yes,Yes,4,No,No phone service,Fiber optic,Yes,No,Yes,No,No,No,One year,Yes,Bank transfer (automatic),69.9,265.18,No,0,1,Medium,-14.420000000000016
+7590-0071,Female,0,Yes,Yes,21,No,No phone service,DSL,Yes,Yes,No,Yes,No,No,Month-to-month,No,Credit card (automatic),66.46,1399.58,Yes,1,0,Medium,3.9200000000000728
+7590-0080,Female,1,No,Yes,41,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Electronic check,52.04,2164.0,Yes,1,0,Medium,30.360000000000127
+7590-0085,Female,1,Yes,Yes,15,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,18.0,282.23,No,0,0,Low,12.230000000000018
+7590-0087,Female,0,Yes,No,1,No,No phone service,DSL,Yes,No,Yes,No,Yes,No,Month-to-month,Yes,Credit card (automatic),62.51,,Yes,1,1,Medium,0.0
+7590-0091,Female,0,Yes,Yes,51,No,No phone service,Fiber optic,Yes,Yes,Yes,No,No,Yes,Month-to-month,No,Electronic check,98.79,5033.83,No,0,0,High,-4.460000000000036
+7590-0095,Male,0,No,Yes,12,No,No phone service,DSL,No,Yes,Yes,No,No,No,Month-to-month,No,Electronic check,51.22,565.04,Yes,1,0,Medium,-49.60000000000002
+7590-0098,Male,0,Yes,No,2,No,No phone service,DSL,No,No,No,Yes,No,No,Month-to-month,No,Electronic check,35.77,74.93,Yes,1,1,Medium,3.3900000000000006
+7590-0099,Female,1,No,Yes,35,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Credit card (automatic),25.98,895.6,No,0,0,Low,-13.700000000000045
+7590-0102,Female,0,Yes,Yes,63,Yes,No,Fiber optic,No,Yes,No,No,No,Yes,Month-to-month,Yes,Electronic check,71.42,4508.56,No,0,0,High,9.100000000000364
+7590-0105,Female,0,Yes,Yes,6,Yes,No,DSL,No,No,No,Yes,Yes,No,Month-to-month,Yes,Mailed check,66.98,435.93,Yes,1,1,Medium,34.05000000000001
+7590-0106,Female,0,No,Yes,49,No,No phone service,DSL,No,No,No,No,No,Yes,Month-to-month,Yes,Electronic check,47.71,2282.52,No,0,0,Medium,-55.26999999999998
+7590-0121,Male,0,No,No,8,Yes,Yes,DSL,No,Yes,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),75.93,613.58,Yes,1,0,High,6.139999999999986
+7590-0128,Male,0,No,Yes,65,No,No phone service,Fiber optic,No,No,No,Yes,Yes,No,Month-to-month,No,Mailed check,77.42,5044.66,Yes,1,0,High,12.359999999999673
+7590-0130,Male,0,No,Yes,14,No,No phone service,Fiber optic,Yes,No,No,No,Yes,Yes,Month-to-month,Yes,Credit card (automatic),70.44,1027.04,No,0,0,High,40.879999999999995
+7590-0134,Male,0,No,Yes,9,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Bank transfer (automatic),21.3,171.69,No,0,0,Low,-20.01000000000002
+7590-0138,Male,0,No,Yes,48,No,No phone service,DSL,Yes,Yes,No,Yes,Yes,Yes,Month-to-month,No,Bank transfer (automatic),78.17,3759.67,No,0,0,High,7.510000000000218
+7590-0156,Male,1,Yes,No,4,Yes,No,DSL,No,Yes,Yes,No,No,Yes,Month-to-month,Yes,Bank transfer (automatic),73.46,277.52,No,0,1,High,-16.319999999999993
+7590-0159,Male,0,Yes,No,39,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Electronic check,18.0,696.48,No,0,0,Low,-5.519999999999982
+7590-0160,Male,0,No,No,58,No,No phone service,DSL,Yes,No,No,No,No,No,One year,Yes,Electronic check,31.87,1845.43,No,0,0,Low,-3.0299999999999727
+7590-0161,Male,0,No,Yes,7,No,No phone service,Fiber optic,No,No,No,Yes,No,No,Month-to-month,No,Electronic check,59.94,444.6,No,0,0,Medium,25.02000000000004
+7590-0166,Female,0,Yes,Yes,21,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,66.23,1334.7,No,0,0,Medium,-56.13000000000011
+7590-0170,Male,0,No,No,47,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Bank transfer (automatic),23.62,1118.92,No,0,0,Low,8.779999999999973
+7590-0187,Male,1,Yes,Yes,38,No,No phone service,Fiber optic,No,No,Yes,No,Yes,No,Month-to-month,Yes,Credit card (automatic),69.57,2624.92,No,0,0,Medium,-18.73999999999978
+7590-0189,Male,0,No,No,41,No,No phone service,DSL,No,No,No,No,Yes,No,Month-to-month,No,Electronic check,52.33,2196.07,No,0,0,Medium,50.54000000000042
+7590-0191,Male,0,No,Yes,68,Yes,Yes,Fiber optic,No,No,Yes,No,No,Yes,Month-to-month,No,Credit card (automatic),79.69,5434.27,Yes,1,0,High,15.350000000000364
+7590-0200,Male,0,Yes,No,58,No,No phone service,DSL,No,No,No,No,Yes,No,Month-to-month,No,Electronic check,38.3,2183.63,No,0,0,Medium,-37.76999999999953
+7590-0201,Male,0,Yes,No,69,No,No phone service,Fiber optic,No,No,No,No,Yes,No,Month-to-month,No,Credit card (automatic),69.37,4777.98,Yes,1,0,Medium,-8.550000000001091
+7590-0205,Female,0,No,Yes,48,No,No phone service,DSL,No,No,No,Yes,Yes,No,One year,Yes,Bank transfer (automatic),66.92,3228.95,No,0,0,Medium,16.789999999999964
+7590-0206,Female,0,Yes,Yes,12,Yes,No,Fiber optic,Yes,Yes,No,No,Yes,Yes,Month-to-month,No,Electronic check,95.26,1186.38,No,0,0,High,43.25999999999999
+7590-0214,Female,1,No,Yes,23,No,No phone service,Fiber optic,Yes,No,No,No,Yes,No,Two year,No,Electronic check,61.05,1412.09,No,0,0,Medium,7.940000000000055
+7590-0216,Female,0,No,No,5,No,No phone service,DSL,Yes,Yes,Yes,No,Yes,Yes,Two year,No,Credit card (automatic),73.23,368.84,No,0,1,High,2.689999999999941
+7590-0217,Female,0,No,Yes,19,Yes,No,Fiber optic,No,Yes,Yes,Yes,Yes,No,Month-to-month,Yes,Credit card (automatic),83.48,1575.03,No,0,0,High,-11.090000000000146
+7590-0230,Male,0,No,Yes,60,No,No phone service,Fiber optic,No,No,No,No,Yes,Yes,Month-to-month,No,Bank transfer (automatic),72.19,4284.32,No,0,0,High,-47.07999999999993
+7590-0240,Male,0,Yes,No,70,No,No phone service,Fiber optic,No,No,No,No,Yes,No,Month-to-month,No,Credit card (automatic),61.88,4327.02,Yes,1,0,Medium,-4.579999999999927
+7590-0241,Male,0,No,Yes,52,No,No phone service,Fiber optic,Yes,No,No,Yes,No,No,Two year,No,Bank transfer (automatic),76.03,3867.93,No,0,0,High,-85.63000000000011
+7590-0242,Female,1,No,No,32,No,No phone service,DSL,Yes,Yes,No,No,No,No,One year,No,Bank transfer (automatic),61.89,1936.48,No,0,0,Medium,-44.0
+7590-0243,Female,1,Yes,Yes,24,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,Yes,Month-to-month,No,Credit card (automatic),81.33,,No,0,0,High,-1870.5900000000001
+7590-0251,Female,1,No,Yes,35,No,No phone service,DSL,No,No,Yes,No,No,Yes,Month-to-month,No,Electronic check,53.79,1865.8,No,0,0,Medium,-16.84999999999991
+7590-0252,Female,0,Yes,Yes,38,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,18.0,666.51,No,0,0,Low,-17.49000000000001
+7590-0269,Female,1,Yes,No,4,No,No phone service,DSL,Yes,Yes,Yes,No,No,Yes,Month-to-month,No,Mailed check,58.31,265.45,Yes,1,1,Medium,32.20999999999998
+7590-0270,Male,0,Yes,Yes,61,No,No phone service,DSL,No,No,No,No,No,No,Month-to-month,No,Electronic check,35.89,2167.75,No,0,0,Medium,-21.539999999999964
+7590-0273,Male,0,Yes,Yes,1,No,No phone service,Fiber optic,No,No,Yes,No,Yes,Yes,One year,No,Mailed check,76.44,57.55,No,0,1,High,-18.89
+7590-0276,Male,0,Yes,Yes,24,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,Yes,Electronic check,37.71,902.32,No,0,0,Medium,-2.7199999999999136
+7590-0288,Female,0,No,Yes,29,No,No phone service,DSL,No,No,Yes,No,No,Yes,Month-to-month,No,Mailed check,55.8,1614.44,No,0,0,Medium,-3.7599999999997635
+7590-0295,Male,0,Yes,No,31,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Mailed check,23.57,771.83,No,0,0,Low,41.16000000000008
+7590-0308,Female,0,No,No,57,No,No phone service,Fiber optic,No,No,No,No,No,Yes,Month-to-month,No,Credit card (automatic),72.48,4181.7,No,0,0,High,50.339999999999236
+7590-0313,Male,0,No,Yes,35,No,No phone service,DSL,Yes,No,No,No,No,No,Two year,Yes,Electronic check,42.24,1507.9,No,0,0,Medium,29.5
+7590-0315,Female,0,No,Yes,56,No,No phone service,DSL,No,No,Yes,Yes,Yes,Yes,One year,No,Bank transfer (automatic),57.97,3207.69,Yes,1,0,Medium,-38.629999999999654
+7590-0330,Female,0,Yes,No,4,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Mailed check,18.24,80.44,No,0,1,Low,7.480000000000004
+7590-0337,Female,1,Yes,No,55,No,No phone service,Fiber optic,Yes,Yes,No,No,Yes,Yes,One year,No,Bank transfer (automatic),77.81,4243.65,No,0,0,High,-35.900000000000546
+7590-0339,Male,0,No,Yes,58,No,No phone service,DSL,No,No,Yes,Yes,No,No,Two year,No,Electronic check,55.41,3274.24,No,0,0,Medium,60.460000000000036
+7590-0343,Female,0,No,Yes,54,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Credit card (automatic),19.5,1046.23,Yes,1,0,Low,-6.769999999999982
+7590-0345,Male,0,Yes,Yes,66,No,No phone service,Fiber optic,No,No,No,Yes,Yes,Yes,Month-to-month,Yes,Mailed check,91.3,,No,0,0,High,-5934.5
+7590-0366,Female,1,Yes,No,45,No,No phone service,DSL,No,No,Yes,No,No,Yes,Month-to-month,No,Electronic check,53.87,2411.39,Yes,1,0,Medium,-12.760000000000218
+7590-0372,Female,0,No,Yes,62,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Bank transfer (automatic),30.32,1828.13,No,0,0,Low,-51.70999999999981
+7590-0378,Female,0,No,Yes,50,No,No phone service,DSL,No,Yes,No,No,No,Yes,Month-to-month,No,Bank transfer (automatic),51.64,2594.89,Yes,1,0,Medium,12.889999999999873
+7590-0379,Female,0,No,Yes,0,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Bank transfer (automatic),18.0,,No,0,1,Low,0.0
+7590-0385,Male,0,No,Yes,30,No,No phone service,DSL,No,Yes,Yes,Yes,No,No,Month-to-month,Yes,Credit card (automatic),44.45,1350.08,No,0,0,Medium,16.579999999999927
+7590-0387,Female,0,Yes,Yes,54,No,No phone service,DSL,Yes,No,Yes,Yes,Yes,No,Two year,No,Electronic check,57.31,3089.15,No,0,0,Medium,-5.5900000000001455
+7590-0389,Female,0,No,Yes,23,No,No phone service,DSL,No,No,No,No,Yes,Yes,Two year,No,Credit card (automatic),52.04,1179.32,No,0,0,Medium,-17.600000000000136
+7590-0391,Male,0,Yes,Yes,54,No,No phone service,DSL,Yes,No,No,Yes,No,Yes,Month-to-month,Yes,Credit card (automatic),63.0,3360.37,No,0,0,Medium,-41.63000000000011
+7590-0392,Female,1,No,Yes,41,No,No phone service,Fiber optic,Yes,No,No,No,No,Yes,One year,Yes,Mailed check,60.03,2468.97,No,0,0,Medium,7.739999999999782
+7590-0397,Male,0,No,Yes,64,No,No phone service,Fiber optic,No,Yes,No,Yes,No,Yes,Month-to-month,Yes,Bank transfer (automatic),71.7,4555.13,No,0,0,High,-33.67000000000007
+7590-0401,Female,0,Yes,No,68,No,No phone service,Fiber optic,No,Yes,No,No,No,No,Month-to-month,Yes,Credit card (automatic),55.27,3750.46,Yes,1,0,Medium,-7.900000000000091
+7590-0406,Male,0,No,Yes,50,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Bank transfer (automatic),18.0,889.88,No,0,0,Low,-10.120000000000005
+7590-0413,Male,0,No,Yes,67,No,No phone service,Fiber optic,No,No,Yes,No,No,Yes,Month-to-month,Yes,Electronic check,52.63,3549.88,No,0,0,Medium,23.670000000000073
+7590-0418,Female,0,Yes,Yes,6,No,No phone service,Fiber optic,No,Yes,Yes,Yes,Yes,Yes,One year,No,Electronic check,96.0,568.81,No,0,1,High,-7.190000000000055
+7590-0427,Female,0,No,Yes,30,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Credit card (automatic),18.0,545.64,No,0,0,Low,5.639999999999986
+7590-0435,Female,0,No,Yes,64,No,No phone service,Fiber optic,Yes,No,Yes,Yes,No,Yes,Two year,Yes,Bank transfer (automatic),77.11,4915.65,No,0,0,High,-19.390000000000327
+7590-0454,Male,0,Yes,Yes,4,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Credit card (automatic),18.0,,Yes,1,1,Low,-54.0
+7590-0455,Male,0,No,No,7,No,No phone service,Fiber optic,No,No,Yes,Yes,No,Yes,Two year,No,Mailed check,76.54,499.04,No,0,0,High,-36.740000000000066
+7590-0458,Female,0,Yes,Yes,55,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Credit card (automatic),18.0,981.26,No,0,0,Low,-8.740000000000009
+7590-0459,Male,1,Yes,Yes,12,No,No phone service,DSL,Yes,Yes,No,No,No,Yes,Two year,No,Credit card (automatic),67.5,842.23,No,0,0,Medium,32.23000000000002
+7590-0460,Male,0,Yes,Yes,56,Yes,Yes,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Bank transfer (automatic),79.73,4511.84,Yes,1,0,High,46.960000000000036
+7590-0461,Male,0,No,Yes,59,No,No phone service,DSL,No,Yes,Yes,No,Yes,No,Two year,Yes,Electronic check,45.08,2661.82,No,0,0,Medium,2.100000000000364
+7590-0466,Female,0,No,Yes,24,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Credit card (automatic),21.68,,Yes,1,0,Low,-498.63999999999993
+7590-0471,Male,0,No,Yes,21,No,No phone service,Fiber optic,No,No,No,No,No,No,Month-to-month,No,Credit card (automatic),51.97,1066.03,Yes,1,0,Medium,-25.339999999999918
+7590-0474,Male,0,No,Yes,51,No,No phone service,Fiber optic,No,Yes,No,Yes,Yes,No,Month-to-month,Yes,Electronic check,77.87,3986.59,No,0,0,High,15.2199999999998
+7590-0475,Female,0,Yes,Yes,70,No,No phone service,DSL,No,Yes,No,Yes,No,No,Month-to-month,No,Bank transfer (automatic),46.69,3269.5,Yes,1,0,Medium,1.2000000000002728
+7590-0476,Female,0,No,Yes,65,No,No phone service,Fiber optic,No,No,No,Yes,Yes,Yes,Two year,No,Credit card (automatic),96.63,6286.13,No,0,0,High,5.180000000000291
+7590-0484,Female,0,No,Yes,17,No,No phone service,DSL,No,No,No,Yes,Yes,No,Month-to-month,No,Electronic check,56.63,966.17,No,0,0,Medium,3.4599999999999227
+7590-0489,Male,0,No,Yes,29,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Credit card (automatic),18.0,542.85,Yes,1,0,Low,20.850000000000023
+7590-0491,Male,1,No,No,59,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Bank transfer (automatic),24.69,1392.56,No,0,0,Low,-64.15000000000009
+7590-0492,Male,1,No,No,69,No,No phone service,DSL,No,No,No,No,Yes,Yes,Two year,No,Electronic check,52.44,3605.33,No,0,0,Medium,-13.029999999999745
+7590-0498,Female,0,No,Yes,41,No,No phone service,Fiber optic,Yes,No,No,No,No,No,Month-to-month,No,Credit card (automatic),67.34,2752.55,Yes,1,0,Medium,-8.389999999999873
+7590-0502,Female,0,Yes,Yes,49,No,No phone service,DSL,No,Yes,Yes,No,No,No,Month-to-month,Yes,Credit card (automatic),38.88,1872.82,No,0,0,Medium,-32.30000000000018
+7590-0504,Male,0,Yes,No,54,No,No phone service,Fiber optic,No,No,No,Yes,No,No,One year,Yes,Credit card (automatic),73.99,3969.72,Yes,1,0,High,-25.73999999999978
+7590-0508,Female,1,No,Yes,45,No,No phone service,Fiber optic,Yes,No,No,No,Yes,Yes,One year,No,Credit card (automatic),61.69,2769.33,No,0,0,Medium,-6.7199999999998
+7590-0510,Female,1,Yes,Yes,53,No,No phone service,Fiber optic,No,Yes,Yes,No,Yes,No,Month-to-month,Yes,Bank transfer (automatic),86.52,4606.57,No,0,0,High,21.01000000000022
+7590-0520,Male,0,Yes,No,56,No,No phone service,Fiber optic,Yes,Yes,Yes,No,Yes,Yes,Month-to-month,No,Electronic check,79.49,4444.26,No,0,0,High,-7.1799999999993815
+7590-0524,Male,0,Yes,Yes,32,No,No phone service,DSL,No,No,No,Yes,No,No,Month-to-month,No,Electronic check,35.32,1111.91,Yes,1,0,Medium,-18.329999999999927
+7590-0543,Male,0,Yes,No,59,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,Yes,Electronic check,28.05,1684.41,No,0,0,Low,29.460000000000036
+7590-0544,Male,0,Yes,Yes,22,No,No phone service,DSL,Yes,No,No,No,Yes,Yes,Two year,Yes,Mailed check,65.13,1438.65,No,0,0,Medium,5.790000000000191
+7590-0549,Female,1,Yes,Yes,37,No,No phone service,DSL,Yes,No,Yes,No,No,No,Month-to-month,No,Mailed check,33.81,1250.52,No,0,0,Low,-0.4500000000000455
+7590-0551,Female,1,No,No,1,No,No phone service,Fiber optic,No,Yes,No,No,Yes,Yes,Month-to-month,Yes,Credit card (automatic),79.37,143.11,No,0,1,High,63.74000000000001
+7590-0555,Female,0,Yes,No,38,No,No phone service,DSL,No,Yes,No,No,No,Yes,Month-to-month,No,Electronic check,53.04,2025.57,Yes,1,0,Medium,10.049999999999955
+7590-0560,Female,0,No,Yes,53,No,No phone service,Fiber optic,Yes,No,No,No,No,No,Two year,Yes,Electronic check,66.18,3503.93,No,0,0,Medium,-3.610000000000582
+7590-0561,Male,0,Yes,Yes,42,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Credit card (automatic),36.74,1554.32,No,0,0,Medium,11.239999999999782
+7590-0562,Female,0,No,Yes,15,No,No phone service,Fiber optic,Yes,Yes,No,No,No,Yes,One year,No,Electronic check,67.8,1093.02,No,0,0,Medium,76.01999999999998
+7590-0564,Female,1,No,Yes,32,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Electronic check,23.49,756.83,No,0,0,Low,5.150000000000091
+7590-0565,Female,0,No,Yes,28,No,No phone service,DSL,No,Yes,Yes,No,Yes,No,Month-to-month,No,Credit card (automatic),51.66,,No,0,0,Medium,-1394.82
+7590-0566,Female,1,No,Yes,42,No,No phone service,Fiber optic,No,No,No,No,No,Yes,Month-to-month,No,Electronic check,57.42,2427.28,Yes,1,0,Medium,15.640000000000327
+7590-0567,Female,0,No,No,66,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,Yes,Electronic check,36.79,2425.91,No,0,0,Medium,-2.230000000000018
+7590-0576,Female,0,No,Yes,54,No,No phone service,DSL,No,No,No,No,Yes,Yes,Two year,No,Credit card (automatic),60.11,3276.59,No,0,0,Medium,30.65000000000009
+7590-0586,Female,0,Yes,Yes,21,No,No phone service,DSL,Yes,No,Yes,Yes,Yes,No,Month-to-month,Yes,Electronic check,61.87,1291.45,Yes,1,0,Medium,-7.819999999999936
+7590-0599,Male,0,Yes,Yes,71,No,No phone service,DSL,Yes,Yes,No,Yes,No,No,Two year,No,Electronic check,46.41,3346.49,No,0,0,Medium,51.38000000000011
+7590-0600,Male,0,No,Yes,63,No,No phone service,Fiber optic,Yes,No,No,Yes,No,Yes,Month-to-month,Yes,Bank transfer (automatic),65.29,4105.07,No,0,0,Medium,-8.200000000000728
+7590-0606,Female,0,No,No,0,No,No phone service,Fiber optic,No,Yes,Yes,Yes,No,No,Two year,Yes,Electronic check,79.39,,No,0,1,High,0.0
+7590-0610,Female,0,Yes,Yes,57,Yes,No,DSL,No,Yes,Yes,Yes,Yes,Yes,Month-to-month,No,Electronic check,86.4,4887.27,Yes,1,0,High,-37.529999999999745
+7590-0614,Female,0,No,No,9,No,No phone service,DSL,Yes,No,No,No,Yes,Yes,Month-to-month,No,Electronic check,72.92,658.31,No,0,0,High,2.0299999999999727
+7590-0632,Male,0,No,Yes,35,Yes,Yes,Fiber optic,Yes,Yes,No,Yes,No,Yes,One year,Yes,Mailed check,106.33,3736.2,No,0,0,High,14.650000000000091
+7590-0634,Male,0,No,Yes,11,No,No phone service,Fiber optic,No,No,No,Yes,Yes,No,One year,No,Electronic check,77.95,879.49,No,0,0,High,22.039999999999964
+7590-0644,Female,0,No,Yes,56,Yes,No,Fiber optic,Yes,No,Yes,No,Yes,No,Month-to-month,No,Electronic check,86.35,4836.33,No,0,0,High,0.7300000000004729
+7590-0647,Female,0,No,Yes,56,No,No phone service,Fiber optic,No,No,Yes,No,Yes,No,Month-to-month,Yes,Electronic check,56.95,3184.83,No,0,0,Medium,-4.370000000000346

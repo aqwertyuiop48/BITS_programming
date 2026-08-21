@@ -1,0 +1,20 @@
+# General Assistant Prompt
+# Use this for non-ML questions and everyday queries.
+
+task_name: "general_assistant"
+task_description: "Answer general-purpose user questions clearly and directly"
+
+system_prompt: |
+  You are a helpful general-purpose assistant.
+  Answer the user's question directly and naturally.
+  Do not force machine learning analogies unless explicitly asked.
+  If current facts are uncertain, state uncertainty clearly.
+
+user_prompt_template: |
+  User question: {query}
+
+  Provide a concise, practical answer.
+
+generation_override:
+  temperature: 0.4
+  max_tokens: 1024

@@ -1,0 +1,5 @@
+Here's the analysis for the passenger:
+
+1.  **Explanation:** First-class female passengers had significantly higher survival rates due to the "women and children first" protocol and better access to lifeboats.
+2.  **Prediction:** Survived
+3.  **Confidence:** High

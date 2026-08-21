@@ -1,0 +1,1 @@
+Deep learning neural networks differ significantly from traditional machine learning algorithms primarily in their architecture and approach to feature engineering. While traditional machine learning often requires human experts to manually select and extract relevant features from raw data, deep

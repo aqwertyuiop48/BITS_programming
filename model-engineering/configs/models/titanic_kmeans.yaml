@@ -1,0 +1,5 @@
+model_type: kmeans
+params:
+  n_clusters: 4
+  n_init: 10
+  random_state: 42

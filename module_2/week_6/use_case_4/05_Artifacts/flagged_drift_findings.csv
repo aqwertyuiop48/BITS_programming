@@ -1,0 +1,3 @@
+column_name,check_type,baseline_value,incoming_value,delta_or_pct,flag,comment
+gender,top_category_shift,Male,Female,,True,Top category changed between baseline and incoming batch.
+avg_monthly_spend_gap,mean_shift,-30.9428,-76.3774,1.4683,True,Review if the incoming distribution changes materially from training.

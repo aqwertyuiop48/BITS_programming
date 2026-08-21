@@ -1,0 +1,17 @@
+{
+  "model_type": "logistic_regression",
+  "run_name": "run_titanic_pca",
+  "model_file": "model.joblib",
+  "features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ],
+  "calibrated": false,
+  "trained_at": "2026-08-12T07:53:04.483650+00:00",
+  "train_config": "configs/train/titanic_pca_features.yaml"
+}

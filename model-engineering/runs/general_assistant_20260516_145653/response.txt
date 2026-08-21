@@ -1,0 +1,5 @@
+The Transformer is a neural network architecture introduced in 2017, primarily designed for sequence-to-sequence tasks, most notably in natural language processing (NLP).
+
+Its key innovation is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input sequence when processing each element. This enables it to capture long-range dependencies in data much more effectively than previous architectures like Recurrent Neural Networks (RNNs) or Long Short-Term Memory (LSTMs).
+
+Unlike RNNs, Transformers process entire sequences in parallel

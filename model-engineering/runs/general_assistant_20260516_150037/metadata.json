@@ -1,0 +1,24 @@
+{
+  "model": "gemini-2.5-flash",
+  "timestamp": "2026-05-16T15:00:44.331153+00:00",
+  "latency_ms": 6080.53,
+  "prompt_tokens": 98,
+  "response_tokens": 697,
+  "total_tokens": 1118,
+  "tool_usage": {
+    "tool_calls_detected": true,
+    "function_calls": [],
+    "execution_events": [],
+    "has_grounding_metadata": true,
+    "grounding_metadata": "image_search_queries=None grounding_chunks=None grounding_supports=None retrieval_metadata=None search_entry_point=None web_search_queries=None google_maps_widget_context_token=None retrieval_queries=None source_flagging_uris=None"
+  },
+  "task": "general_assistant",
+  "query": "Explain how deep learning neural networks differ from traditional machine learning algorithms, including the history of their development, key innovations that made them practical, current limitations, and potential future directions in the field compute.",
+  "budget_mode": "detailed",
+  "auto_route": true,
+  "routing_reason": "detected freshness/search intent; detected computation/code intent",
+  "routed_tools": [
+    "google_search",
+    "code_execution"
+  ]
+}

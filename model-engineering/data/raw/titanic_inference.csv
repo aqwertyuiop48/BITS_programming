@@ -1,0 +1,51 @@
+PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+101,3,Noah Reed,male,28,0,0,330911,7.8958,,S
+102,1,Olivia Chen,female,32,1,0,PC 17758,82.1708,B28,C
+103,2,Ethan Brooks,male,,0,0,SC/AH 3085,10.5,,S
+104,3,Ava Patel,female,16,0,1,367230,12.2875,,S
+105,1,Henry Cole,male,45,0,0,113783,35.5,C68,S
+201,1,Helen Young,female,27.0,0,0,111023,47.0222,,S
+202,3,Thomas Williams,male,17.0,1,0,696631,8.7106,,S
+203,3,Leonard Taylor,male,16.0,0,1,928859,9.9736,,Q
+204,1,Alice Scott,female,20.0,0,0,SC 63194,37.5967,G130,C
+205,3,William Young,male,4.0,1,1,689912,7.1,,S
+206,2,Leonard Johnson,male,16.0,0,0,396805,7.8071,,S
+207,2,Albert Wood,male,29.0,2,0,152846,14.6597,F59,S
+208,3,Mabel Lewis,female,51.0,0,1,850665,7.1762,,C
+209,3,Agnes Lewis,female,18.0,0,0,779112,9.7336,,C
+210,3,William Davies,male,11.0,0,0,174940,7.3692,,C
+211,2,Elizabeth Taylor,female,10.0,0,0,737365,8.8321,,S
+212,3,Helen Roberts,female,37.0,0,0,363500,8.7085,,S
+213,3,Clara Mitchell,female,30.0,0,0,170868,9.8622,,C
+214,2,Mabel Smith,female,14.0,0,0,219824,4.5343,,S
+215,2,Clara Taylor,female,,0,0,439061,24.6368,,S
+216,1,Ernest Williams,male,44.0,1,0,LINE 86825,206.8554,A22,S
+217,2,Percy Robinson,male,22.0,0,2,188429,20.2471,G17,S
+218,3,Agnes Roberts,female,33.0,0,0,336985,13.2091,,S
+219,2,William Taylor,male,1.0,0,0,613618,11.9942,,S
+220,1,Mary Davies,female,39.0,0,0,988466,59.6715,,S
+221,3,Albert Davies,male,48.0,0,1,450871,7.3753,,C
+222,2,Mabel Roberts,female,44.0,1,2,367670,15.3613,,S
+223,1,Douglas Hall,male,17.0,0,0,195434,61.728,,Q
+224,3,Alice Wilson,female,24.0,0,0,781613,10.2034,,Q
+225,3,Ethel Lewis,female,27.0,0,0,854311,8.6181,,S
+226,1,Harold Phillips,male,36.0,1,0,624679,47.4885,,S
+227,1,Reginald Hall,male,1.0,0,0,366298,30.2089,G125,S
+228,2,Helen Jones,female,24.0,0,0,750987,29.9814,,Q
+229,3,Clifford Brown,male,41.0,0,1,931136,4.8734,,S
+230,3,Frank Davies,male,26.0,0,0,145849,10.4622,,C
+231,2,Frank King,male,38.0,0,0,892481,22.9629,A84,S
+232,2,Leonard Wilson,male,12.0,0,0,187077,13.1199,,S
+233,3,Percy Wright,male,22.0,1,1,584416,4.9852,,S
+234,3,Lily Hall,female,52.0,1,0,114833,7.169,,S
+235,3,Herbert Martin,male,28.0,0,0,318196,5.3228,,S
+236,3,Emma Harris,female,,0,0,356698,9.3269,,S
+237,3,Dorothy Hall,female,40.0,0,0,439500,8.2664,,Q
+238,3,Mary Walker,female,35.0,1,1,844096,6.8121,,C
+239,1,Albert Smith,male,23.0,0,0,PP 36584,82.9614,E135,S
+240,3,Albert Robinson,male,36.0,0,0,541530,10.6896,,C
+241,1,Mary Mitchell,female,34.0,1,1,SC 43876,25.435,B22,S
+242,3,Agnes Martin,female,45.0,2,0,889728,8.2113,,S
+243,2,Ernest Wilson,male,36.0,1,0,653638,21.3691,,S
+244,3,Arthur Turner,male,27.0,1,0,744959,7.7844,,C
+245,3,Elizabeth Phillips,female,56.0,1,1,287823,5.1794,,Q

@@ -1,0 +1,17 @@
+{
+  "model_type": "decision_tree",
+  "run_name": "run_titanic_decision_tree",
+  "model_file": "model.joblib",
+  "features": [
+    "Pclass",
+    "Sex",
+    "Age",
+    "SibSp",
+    "Parch",
+    "Fare",
+    "Embarked"
+  ],
+  "calibrated": true,
+  "trained_at": "2026-08-12T07:50:16.402670+00:00",
+  "train_config": "configs/train/titanic_decision_tree.yaml"
+}
