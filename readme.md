@@ -85,3 +85,10 @@ Without this foundation, advanced topics like Kubeflow, Triton, drift detection,
 - assignment_19 : week_22 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45758
 - assignment_20 : week_23 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/46094
 - assignment_21 : week_25 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/47902
+
+
+AWS account: (root user)
+- Sign up with BITS account credentials: 2026a1c100010@bitspilani-digital.edu.in
+- AWS : 
+    - AWS console : https://eu-north-1.console.aws.amazon.com/console/home?nc2=h_si&region=eu-north-1&src=header-signin#
+    - 
