@@ -79,29 +79,6 @@ def load_api_key_from_dotenv(env_name: str) -> str | None:
     return None
 
 
-def get_api_key_candidates(env_name):
-    """Normalize env-var configuration to a list, preserving legacy single-key usage."""
-    if isinstance(env_name, str):
-        candidates = [env_name]
-    elif isinstance(env_name, (list, tuple)):
-        candidates = [str(name) for name in env_name]
-    else:
-        candidates = [str(env_name)]
-    return [name for i, name in enumerate(candidates) if name and name not in candidates[:i]]
-
-
-def resolve_api_key(env_name) -> str | None:
-    """Try env vars in order, then the local .env file for each candidate."""
-    for candidate in get_api_key_candidates(env_name):
-        value = os.getenv(candidate)
-        if value:
-            return value
-        value = load_api_key_from_dotenv(candidate)
-        if value:
-            return value
-    return None
-
-
 def get_effective_max_tokens(budget_mode: str, configured_max_tokens: int | None) -> int:
     """Resolve max tokens with budget profile as an optimization cap."""
     budget_cap = BUDGET_MAX_TOKENS[budget_mode]
@@ -231,12 +208,11 @@ Examples:
 
     # Initialize Gemini client
     env_name = llm_cfg["paths"]["api_key_env"]
-    api_key = resolve_api_key(env_name)
+    api_key = os.getenv(env_name) or load_api_key_from_dotenv(env_name)
     if not api_key:
-        env_names = ", ".join(get_api_key_candidates(env_name))
         print(
-            f"ERROR: none of the configured Gemini API keys were set ({env_names}).\n"
-            f"Tip: set one of these in your shell or add it to a local .env file.\n"
+            f"ERROR: {env_name} environment variable not set.\n"
+            f"Tip: set {env_name} in your shell or add it to a local .env file.\n"
             "Get free key at: https://ai.google.dev/"
         )
         sys.exit(1)

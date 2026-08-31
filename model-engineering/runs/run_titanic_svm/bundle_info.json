@@ -12,6 +12,6 @@
     "Embarked"
   ],
   "calibrated": true,
-  "trained_at": "2026-08-12T07:52:23.616390+00:00",
+  "trained_at": "2026-04-09T15:01:22.763611+00:00",
   "train_config": "configs/train/titanic_svm.yaml"
 }

@@ -92,3 +92,8 @@ AWS account: (root user)
 - AWS : 
     - AWS console : https://eu-north-1.console.aws.amazon.com/console/home?nc2=h_si&region=eu-north-1&src=header-signin#
     - 
+
+
+Databricks:
+https://dbc-1dca92b6-1e3d.cloud.databricks.com/ingestion/add?o=7474656177345702
+- Sign up with BITS account credentials: 2026a1c100010@bitspilani-digital.edu.in
