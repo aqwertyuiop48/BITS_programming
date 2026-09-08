@@ -1,0 +1,100 @@
+name: Run assignment notebooks on Google Colab
+
+on:
+  workflow_dispatch:
+    inputs:
+      notebook:
+        description: "Repository-relative notebook path, or 'all' (assignment_12 is always excluded)"
+        required: true
+        default: assignments/assignment_2/Lab_4_1_data_cleaning_missing_values_lab.ipynb
+        type: string
+      gpu:
+        description: Colab accelerator to request
+        required: true
+        default: T4
+        type: choice
+        options: [T4, NONE]
+
+permissions:
+  contents: read
+
+jobs:
+  run-notebooks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the Google Colab CLI
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install git+https://github.com/googlecolab/google-colab-cli
+          python -m pip install "jupyter_kernel_client==0.9.0"
+
+      - name: Create gcolab compatibility wrapper
+        run: |
+          cat > gcolab.py <<'PY'
+          import jupyter_kernel_client.wsclient
+
+          original_recv_reply = jupyter_kernel_client.wsclient.KernelWebSocketClient._recv_reply
+
+          def recv_reply_without_timeout(self, msg_id, timeout=None):
+              return original_recv_reply(self, msg_id, timeout=None)
+
+          jupyter_kernel_client.wsclient.KernelWebSocketClient._recv_reply = recv_reply_without_timeout
+
+          from colab_cli.cli import main
+
+          if __name__ == "__main__":
+              main()
+          PY
+
+      - name: Configure Google Application Default Credentials
+        env:
+          GCP_ADC_JSON: ${{ secrets.GCP_ADC_JSON }}
+        run: |
+          test -n "$GCP_ADC_JSON" || { echo "Set the GCP_ADC_JSON repository secret first."; exit 1; }
+          mkdir -p ~/.config/gcloud
+          printf '%s' "$GCP_ADC_JSON" > ~/.config/gcloud/application_default_credentials.json
+
+      - name: Select notebooks
+        id: notebooks
+        env:
+          NOTEBOOK: ${{ inputs.notebook }}
+        run: |
+          if [ "$NOTEBOOK" = "all" ]; then
+            find assignments -type f -name '*.ipynb' ! -path 'assignments/assignment_12/*' ! -path '*/.ipynb_checkpoints/*' | sort > notebooks.txt
+          else
+            test -f "$NOTEBOOK"
+            case "$NOTEBOOK" in assignments/assignment_12/*) echo "assignment_12 is excluded"; exit 1;; esac
+            printf '%s\n' "$NOTEBOOK" > notebooks.txt
+          fi
+          test -s notebooks.txt
+          cat notebooks.txt
+
+      - name: Run notebooks in Google Colab
+        env:
+          GPU: ${{ inputs.gpu }}
+        run: |
+          SESSION="github-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          if [ "$GPU" = "NONE" ]; then
+            python gcolab.py --auth adc new -s "$SESSION"
+          else
+            python gcolab.py --auth adc new -s "$SESSION" --gpu "$GPU"
+          fi
+          while IFS= read -r notebook; do
+            echo "Executing $notebook"
+            python gcolab.py --auth adc exec -s "$SESSION" -f "$notebook"
+          done < notebooks.txt
+
+      - name: Stop the Colab session
+        if: always()
+        run: |
+          SESSION="github-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python gcolab.py --auth adc stop -s "$SESSION" || true

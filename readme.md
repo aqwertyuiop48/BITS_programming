@@ -91,7 +91,7 @@ AWS account: (root user)
 - Sign up with BITS account credentials: 2026a1c100010@bitspilani-digital.edu.in
 - AWS : 
     - AWS console : https://eu-north-1.console.aws.amazon.com/console/home?nc2=h_si&region=eu-north-1&src=header-signin#
-    - 
+    - AWS Billing: https://us-east-1.console.aws.amazon.com/billing/home#/bills
 
 
 Databricks:

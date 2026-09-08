@@ -1,0 +1,26 @@
+column_name,dtype,role,example_value,description
+customerID,object,identifier,7590-0637,Unique subscriber identifier used for lineage only; do not feed directly into the model.
+gender,object,feature,Male,"gender field from churn source dataset, preserved for ETL profiling and modeling."
+SeniorCitizen,int64,feature,0,"SeniorCitizen field from churn source dataset, preserved for ETL profiling and modeling."
+Partner,object,feature,No,"Partner field from churn source dataset, preserved for ETL profiling and modeling."
+Dependents,object,feature,Yes,"Dependents field from churn source dataset, preserved for ETL profiling and modeling."
+tenure,int64,feature,29,Months the customer has stayed with the telecom provider.
+PhoneService,object,feature,No,"PhoneService field from churn source dataset, preserved for ETL profiling and modeling."
+MultipleLines,object,feature,No phone service,"MultipleLines field from churn source dataset, preserved for ETL profiling and modeling."
+InternetService,object,feature,DSL,"InternetService field from churn source dataset, preserved for ETL profiling and modeling."
+OnlineSecurity,object,feature,Yes,"OnlineSecurity field from churn source dataset, preserved for ETL profiling and modeling."
+OnlineBackup,object,feature,Yes,"OnlineBackup field from churn source dataset, preserved for ETL profiling and modeling."
+DeviceProtection,object,feature,Yes,"DeviceProtection field from churn source dataset, preserved for ETL profiling and modeling."
+TechSupport,object,feature,Yes,"TechSupport field from churn source dataset, preserved for ETL profiling and modeling."
+StreamingTV,object,feature,Yes,"StreamingTV field from churn source dataset, preserved for ETL profiling and modeling."
+StreamingMovies,object,feature,No,"StreamingMovies field from churn source dataset, preserved for ETL profiling and modeling."
+Contract,object,feature,Month-to-month,"Contract field from churn source dataset, preserved for ETL profiling and modeling."
+PaperlessBilling,object,feature,No,"PaperlessBilling field from churn source dataset, preserved for ETL profiling and modeling."
+PaymentMethod,object,feature,Electronic check,"PaymentMethod field from churn source dataset, preserved for ETL profiling and modeling."
+MonthlyCharges,float64,feature,57.62,Recurring monthly bill amount.
+TotalCharges,float64,feature,1654.64,Accumulated billed amount across tenure.
+Churn,object,feature,No,"Churn field from churn source dataset, preserved for ETL profiling and modeling."
+label,int64,target,0,"Binary churn label after standardization: 1 means churn, 0 means stay."
+is_new_customer,int64,feature,0,Engineered flag for short-tenure customers.
+monthly_charge_band,object,feature,Medium,Engineered charge band used to simplify pricing segments.
+avg_monthly_spend_gap,float64,feature,-16.339999999999918,Difference between total spend and tenure multiplied by current monthly charge.
