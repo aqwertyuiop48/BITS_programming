@@ -1,0 +1,11 @@
+flowchart LR
+  A[Git push] --> B[CI tests]
+  B --> C[ML accuracy gate]
+  C --> D[Build and image scan]
+  D --> E[Model registry]
+  E --> F[10 percent canary]
+  F --> G[Kubernetes inference service and HPA]
+  G --> H[Prometheus and drift monitor]
+  H --> I[Grafana alerts]
+  I --> J[Slack or PagerDuty]
+  J --> K[Rollback or retraining]

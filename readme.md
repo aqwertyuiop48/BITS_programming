@@ -91,6 +91,8 @@ AWS account: (root user)
 - AWS : 
     - AWS console : https://eu-north-1.console.aws.amazon.com/console/home?nc2=h_si&region=eu-north-1&src=header-signin#
     - AWS Billing: https://us-east-1.console.aws.amazon.com/billing/home#/bills
+    - AWS storage containers: https://us-east-1.console.aws.amazon.com/s3/home?region=us-east-1#
+    - AWS roles sagemaker ID: https://us-east-1.console.aws.amazon.com/iam?region=us-east-1#/roles/details/model-engineering-lab-sagemaker-execution
 
 
 Databricks:
