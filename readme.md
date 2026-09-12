@@ -83,6 +83,7 @@ Without this foundation, advanced topics like Kubeflow, Triton, drift detection,
 - assignment_18 : week_21 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45757
 - assignment_19 : week_22 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/45758
 - assignment_20 : week_23 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/46094
+    - Not working : https://github.com/aqwertyuiop48/BITS_programming/blob/3a12c96439d816c89263f733ecfe3137b61f5995/assignments/assignment_20/(not_working)%20UNIFIED_AWS_MLflow_Automated_Pipeline_v8%20(1).ipynb
 - assignment_21 : week_25 : https://lumen.bitspilani-digital.edu.in/d2l/le/lessons/7066/topics/47902
 
 
