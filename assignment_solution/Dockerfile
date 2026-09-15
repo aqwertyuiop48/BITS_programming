@@ -1,4 +1,7 @@
-# Stage 1: Builder
+# Stage 1: Builder — installs ONLY the application dependencies.
+# Quantization/validation is NOT repeated here: CI already ran the quality
+# gate (optimize_model.py) and produced models/model.int8.onnx before the
+# image build, so no training data or modelling tooling is needed at build time.
 FROM python:3.11-slim AS builder
 
 WORKDIR /build
@@ -6,18 +9,6 @@ WORKDIR /build
 # Copy dependency definition and install directly to /deps
 COPY requirements.txt .
 RUN python -m pip install --no-cache-dir --target /deps -r requirements.txt
-
-# Copy source code and model optimization script
-COPY optimize_model.py .
-COPY models/ ./models/
-COPY data/ ./data/
-
-# Run quantization inside builder stage so model.int8.onnx is guaranteed to exist
-RUN PYTHONPATH=/deps python optimize_model.py \
-    --fp32-model models/model.onnx \
-    --int8-model models/model.int8.onnx \
-    --validation-data data/validation.npz \
-    --max-accuracy-drop 0.01
 
 # Stage 2: Runtime
 FROM python:3.11-slim AS runtime
@@ -32,9 +23,10 @@ WORKDIR /app
 # Copy dependencies from builder
 COPY --from=builder /deps /usr/local/lib/python3.11/site-packages
 
-# Copy application code and optimized model artifacts
+# Copy application code and the registry-approved optimized model artifacts
+# (models/ carries both model.onnx and model.int8.onnx produced by CI)
 COPY app.py ./
-COPY --from=builder /build/models/ /app/models/
+COPY models/ ./models/
 
 # Ensure runtime user owns the copied application files
 RUN chown -R appuser:appuser /app
