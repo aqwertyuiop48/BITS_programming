@@ -27,6 +27,14 @@ RUN apt-get update && \
     mkdir -p /app && \
     chown -R appuser:appuser /app
 
+# Remove the base image's bundled packaging stack (pip/setuptools/wheel and
+# their orphaned jaraco.* deps). They are build tooling we do not need at
+# runtime, and leaving them introduces stale, vulnerable versions (e.g. wheel
+# 0.45.1, jaraco.context 5.3.0) that surface in the CVE scan. All runtime
+# Python dependencies come from /deps below, so wiping site-packages first is
+# safe and deterministic - and no package manager ships in the runtime image.
+RUN rm -rf /usr/local/lib/python3.11/site-packages/*
+
 WORKDIR /app
 
 # Copy dependencies from builder
