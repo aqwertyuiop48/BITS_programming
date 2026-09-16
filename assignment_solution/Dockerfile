@@ -2,7 +2,10 @@
 # Quantization/validation is NOT repeated here: CI already ran the quality
 # gate (optimize_model.py) and produced models/model.int8.onnx before the
 # image build, so no training data or modelling tooling is needed at build time.
-FROM python:3.11-slim AS builder
+# Pinned to an LTS Debian base (bookworm, Debian 12) rather than the floating
+# slim tag (presently trixie/Debian 13): LTS gets long-lived, well-maintained
+# security backports, so fewer unfixable OS CVEs surface.
+FROM python:3.11-slim-bookworm AS builder
 
 WORKDIR /build
 
@@ -11,10 +14,16 @@ COPY requirements.txt .
 RUN python -m pip install --no-cache-dir --target /deps -r requirements.txt
 
 # Stage 2: Runtime
-FROM python:3.11-slim AS runtime
+FROM python:3.11-slim-bookworm AS runtime
 
-# Pre-create app directory and unprivileged user
-RUN useradd --create-home --uid 10001 appuser && \
+# Hardening: pull the latest Debian security backports before anything else,
+# then drop the package lists so no apt metadata ships in the image.
+# This clears the OS CVEs that already have a published fix.
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/* && \
+    useradd --create-home --uid 10001 appuser && \
     mkdir -p /app && \
     chown -R appuser:appuser /app
 
