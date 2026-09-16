@@ -1,7 +1,11 @@
-fastapi==0.115.6
+fastapi==0.141.1
 uvicorn[standard]==0.34.0
 numpy==2.1.3
-onnx==1.17.0
+onnx==1.22.0
 onnxruntime==1.20.1
 scikit-learn==1.6.0
 pydantic==2.10.4
+# Direct pins for transitive dependencies with published security fixes,
+# so the Trivy HIGH/CRITICAL gate stays green (fixes live in the app image).
+wheel==0.48.0
+jaraco.context==6.1.0
