@@ -29,7 +29,7 @@ jobs:
       - name: Test unused LLM configs 3 (requires GEMINI_API_KEY)
         working-directory: ./model-engineering
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_3 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_2 }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM config tests to avoid rate limiting..."
@@ -72,7 +72,7 @@ jobs:
       - name: Test unused LLM configs 1 (requires GEMINI_API_KEY)
         working-directory: ./model-engineering
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_5 }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_4 }}
         run: |
           if [ -n "$GEMINI_API_KEY" ]; then
             echo "Waiting before LLM config tests to avoid rate limiting..."
