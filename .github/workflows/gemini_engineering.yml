@@ -26,20 +26,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Test unused LLM configs 3 (requires GEMINI_API_KEY)
-        working-directory: ./model-engineering
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_2 }}
-        run: |
-          if [ -n "$GEMINI_API_KEY" ]; then
-            echo "Waiting before LLM config tests to avoid rate limiting..."
-            sleep 50
-            python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
-          else
-            echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
-          fi
-
-
 # # search using lot of quota, hence getting 429 always
 #       - name: Test unused LLM configs (search 1) (requires GEMINI_API_KEY)
 #         working-directory: ./model-engineering
