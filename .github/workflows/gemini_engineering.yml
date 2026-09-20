@@ -1,0 +1,96 @@
+name: Model Engineering CI
+
+on:
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        working-directory: ./model-engineering
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Test unused LLM configs 3 (requires GEMINI_API_KEY)
+        working-directory: ./model-engineering
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_3 }}
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "Waiting before LLM config tests to avoid rate limiting..."
+            sleep 50
+            python llm_demo.py --config configs/llm/gemini_code_execution.yaml --prompt-config configs/prompts/code_execution_demo.yaml --query "write python code for fibonacci" --budget-mode low
+          else
+            echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
+          fi
+
+
+# # search using lot of quota, hence getting 429 always
+#       - name: Test unused LLM configs (search 1) (requires GEMINI_API_KEY)
+#         working-directory: ./model-engineering
+#         env:
+#           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_4 }}
+#         run: |
+#           if [ -n "$GEMINI_API_KEY" ]; then
+#             echo "Waiting before LLM config tests to avoid rate limiting..."
+#             sleep 50
+#             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_plus_compute.yaml --query "latest AI trends" --budget-mode low
+#           else
+#             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
+#           fi
+
+# # search using lot of quota, hence getting 429 always
+#       - name: Test unused LLM configs (search 2) (requires GEMINI_API_KEY)
+#         working-directory: ./model-engineering
+#         env:
+#           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_5 }}
+#         run: |
+#           if [ -n "$GEMINI_API_KEY" ]; then
+#             echo "Waiting before LLM config tests to avoid rate limiting..."
+#             sleep 50
+#             python llm_demo.py --config configs/llm/gemini_search.yaml --prompt-config configs/prompts/search_weather_brief.yaml --query "weather forecast" --budget-mode low
+#           else
+#             echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
+#           fi
+
+
+      - name: Test unused LLM configs 1 (requires GEMINI_API_KEY)
+        working-directory: ./model-engineering
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_5 }}
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "Waiting before LLM config tests to avoid rate limiting..."
+            sleep 50
+            python llm_demo.py --config configs/llm/gemini_tools_all.yaml --prompt-config configs/prompts/general_assistant.yaml --query "explain machine learning" --budget-mode low
+            sleep 50
+            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/model_explanation.yaml --query "explain random forest" --budget-mode low
+            sleep 50
+            python llm_demo.py --config configs/llm/gemini.yaml --prompt-config configs/prompts/code_review.yaml --query "review this code" --budget-mode low
+          else
+            echo "Skipping unused LLM config tests because GEMINI_API_KEY is not set"
+          fi
+
+      - name: Upload runs directory (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: runs
+          path: |
+            model-engineering/runs/
+            model-engineering/notebooks/
