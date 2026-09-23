@@ -1,4 +1,4 @@
-block-list:
+blocklist:
   - "999999999999" # Global blocklist to prevent nuking production or root accounts
 
 regions:
