@@ -1,0 +1,22 @@
+block-list:
+  - "999999999999" # Global blocklist to prevent nuking production or root accounts
+
+regions:
+  - all # Scans all enabled regions in the account + global resources automatically
+
+accounts:
+  "455865672536": # Replace with your target AWS Account ID
+    resource-types:
+      excludes:
+        # Cost & Billing Resources
+        - BudgetsBudget
+        - CostAnomalyDetector
+        - CostAnomalySubscription
+        
+        # IAM / Access Control (Prevents locking yourself out)
+        - IAMUser
+        - IAMUserPolicyAttachment
+        - IAMUserAccessKey
+        - IAMRole
+        - IAMRolePolicyAttachment
+        - IAMPolicy
