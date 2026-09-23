@@ -33,16 +33,16 @@ jobs:
           sudo mv aws-nuke /usr/local/bin/aws-nuke
           aws-nuke version
 
-      - name: Execute AWS Nuke (Dry Run)
-        run: |
-          aws-nuke run \
-            --config=nuke-config.yml \
-            --no-prompt
-
-            
-    #   - name: Execute AWS Nuke (REAL DELETION)
+    #   - name: Execute AWS Nuke (Dry Run)
     #     run: |
     #       aws-nuke run \
-    #         --config nuke-config.yml \
-    #         --no-prompt \
-    #         --no-dry-run
+    #         --config=nuke-config.yml \
+    #         --no-prompt
+
+
+      - name: Execute AWS Nuke (REAL DELETION)
+        run: |
+          aws-nuke run \
+            --config nuke-config.yml \
+            --no-prompt \
+            --no-dry-run

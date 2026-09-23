@@ -5,18 +5,84 @@ regions:
   - all # Scans all enabled regions in the account + global resources automatically
 
 accounts:
-  "455865672536": # Replace with your target AWS Account ID
+  "455865672536": # Target AWS Account ID
     resource-types:
       excludes:
-        # Cost & Billing Resources
+        # -------------------------------------------------------------
+        # 1. Billing & Cost Management
+        # -------------------------------------------------------------
         - BudgetsBudget
         - CostAnomalyDetector
         - CostAnomalySubscription
-        
-        # IAM / Access Control (Prevents locking yourself out)
+
+        # -------------------------------------------------------------
+        # 2. Complete IAM & Identity Protection (Lockout Prevention)
+        # -------------------------------------------------------------
         - IAMUser
+        - IAMUserPolicy
         - IAMUserPolicyAttachment
         - IAMUserAccessKey
+        - IAMUserGroupAttachment
+        - IAMLoginProfile
+        - IAMGroup
+        - IAMGroupPolicyAttachment
         - IAMRole
+        - IAMRolePolicy
         - IAMRolePolicyAttachment
         - IAMPolicy
+        - IAMInstanceProfile
+        - IAMInstanceProfileRole
+        - IAMVirtualMFADevice
+        - IAMOpenIDConnectProvider
+        - IAMSAMLProvider
+        - IAMAccountAlias
+        - IAMAccountPasswordPolicy
+        - IAMServiceLinkedRole
+
+        # -------------------------------------------------------------
+        # 3. AWS Identity Center (SSO) & Organizations
+        # -------------------------------------------------------------
+        - OrganizationsAccount
+        - OrganizationsOrganizationalUnit
+        - OrganizationsPolicy
+        - OrganizationsPolicyAttachment
+        - SSOAdminPermissionSet
+        - SSOAdminAccountAssignment
+        - SSOAdminInstanceAccessControlAttributeConfiguration
+
+        # -------------------------------------------------------------
+        # 4. Security, Cryptography & Secrets (Data Loss Prevention)
+        # -------------------------------------------------------------
+        - KMSKey
+        - KMSAlias
+        - SecretsManagerSecret
+
+        # -------------------------------------------------------------
+        # 5. Infrastructure Baseline Stacks (Control Tower / Landing Zone)
+        # -------------------------------------------------------------
+        - CloudFormationStack
+        - CloudFormationStackSet
+
+        # -------------------------------------------------------------
+        # 6. Networking Baseline
+        # -------------------------------------------------------------
+        - VPC
+        - Subnet
+        - InternetGateway
+        - RouteTable
+        - NetworkACL
+        - SecurityGroup
+        - VPCEndpoint
+        - VPCEndpointServiceConfiguration
+
+        # -------------------------------------------------------------
+        # 7. Auditing, Logging & Compliance
+        # -------------------------------------------------------------
+        - CloudTrailTrail
+        - ConfigServiceConfigRule
+        - ConfigServiceConfigurationRecorder
+        - ConfigServiceDeliveryChannel
+        - CloudWatchLogsLogGroup
+        - CloudWatchMetricAlarm
+        - GuardDutyDetector
+        - SecurityHub
