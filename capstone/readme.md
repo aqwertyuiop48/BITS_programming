@@ -6,5 +6,5 @@ Steps to get the setup:
 - <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/21a4dbc3-ef80-4132-bb24-6a1bf0e06a45" />
 <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/a1ee7e4a-e298-4ac0-abb8-9658537f6c74" /> <br>
 
-  - .\.venv\Scripts\python.exe -m scripts.run_pipeline --skip-download 
+  - <pre> .\.venv\Scripts\python.exe -m scripts.run_pipeline --skip-download </pre>
 
