@@ -1,0 +1,3 @@
+LAB- 4.1 - This lab explores various techniques for handling missing data in a housing price dataset. It demonstrates methods like deleting rows with missing values, imputing missing numerical data using mean, median, arbitrary values, and regression, and imputing missing categorical data using mode and adding a "missing" category. The goal is to show different approaches to deal with incomplete datasets before further analysis or modeling. 
+
+So below is the link of lab 4.1 from which you can download the .ipynb file or open directly in Google Colab and continue learning from there- LINK 1, LINK 2
