@@ -1,7 +1,7 @@
 import os
 import json
 import random
-from pathlib import Path
+from pathlib import Path ; from IPython.display import display, HTML
 from PIL import Image
 from tqdm import tqdm
 
