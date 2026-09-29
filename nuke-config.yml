@@ -58,12 +58,6 @@ accounts:
         - SecretsManagerSecret
 
         # -------------------------------------------------------------
-        # 5. Infrastructure Baseline Stacks (Control Tower / Landing Zone)
-        # -------------------------------------------------------------
-        - CloudFormationStack
-        - CloudFormationStackSet
-
-        # -------------------------------------------------------------
         # 6. Networking Baseline
         # -------------------------------------------------------------
         - VPC
@@ -74,15 +68,3 @@ accounts:
         - SecurityGroup
         - VPCEndpoint
         - VPCEndpointServiceConfiguration
-
-        # -------------------------------------------------------------
-        # 7. Auditing, Logging & Compliance
-        # -------------------------------------------------------------
-        - CloudTrailTrail
-        - ConfigServiceConfigRule
-        - ConfigServiceConfigurationRecorder
-        - ConfigServiceDeliveryChannel
-        - CloudWatchLogsLogGroup
-        - CloudWatchMetricAlarm
-        - GuardDutyDetector
-        - SecurityHub
