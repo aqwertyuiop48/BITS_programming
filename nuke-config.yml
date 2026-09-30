@@ -68,3 +68,7 @@ accounts:
         - SecurityGroup
         - VPCEndpoint
         - VPCEndpointServiceConfiguration
+
+settings:
+  CloudFormationStack:
+    DisableDeletionProtection: true

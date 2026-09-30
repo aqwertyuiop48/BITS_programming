@@ -33,6 +33,32 @@ jobs:
           sudo mv aws-nuke /usr/local/bin/aws-nuke
           aws-nuke version
 
+      - name: Disable CloudFormation termination protection
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t regions < <(
+            aws ec2 describe-regions --all-regions \
+              --query "Regions[?OptInStatus=='opt-in-not-required' || OptInStatus=='opted-in'].RegionName" \
+              --output json | jq -r '.[]'
+          )
+
+          for region in "${regions[@]}"; do
+            mapfile -t protected_stacks < <(
+              aws cloudformation describe-stacks --region "$region" \
+                --query 'Stacks[?EnableTerminationProtection].StackName' \
+                --output json | jq -r '.[]'
+            )
+
+            for stack in "${protected_stacks[@]}"; do
+              echo "Disabling termination protection: $region/$stack"
+              aws cloudformation update-termination-protection \
+                --region "$region" \
+                --no-enable-termination-protection \
+                --stack-name "$stack"
+            done
+          done
+
     #   - name: Execute AWS Nuke (Dry Run)
     #     run: |
     #       aws-nuke run \
