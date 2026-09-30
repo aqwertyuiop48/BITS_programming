@@ -58,6 +58,12 @@ accounts:
         - SecretsManagerSecret
 
         # -------------------------------------------------------------
+        # 5. ElastiCache Exclusions (Fixes InvalidParameterValue 400)
+        # -------------------------------------------------------------
+        - ElasticacheUser
+        - ElasticacheUserGroup
+
+        # -------------------------------------------------------------
         # 6. Networking Baseline
         # -------------------------------------------------------------
         - VPC
