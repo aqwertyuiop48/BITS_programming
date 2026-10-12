@@ -29,9 +29,10 @@ the same `.venv` kernel. The dependency list includes notebook support, not
 presentation-authoring software.
 
 Plain `pytest` does not enable coverage automatically. To check the configured
-coverage threshold, use `python -m pytest --cov=src --cov-report=term-missing`
-with this environment's interpreter. The [recording companion](RECORDING_COMPANION.md)
-maps each activity to its lab and records fresh-checkout differences.
+coverage threshold, use
+`.\.venv\Scripts\python.exe -m pytest --cov=src --cov-report=term-missing`.
+The [recording companion](RECORDING_COMPANION.md) maps each activity to its lab
+and records fresh-checkout differences.
 
 ## 2. Data Pipeline
 
@@ -171,3 +172,115 @@ operation. `requirements-monitoring.txt` supplies AWS SDK and optional reporting
 dependencies; it is not needed for core local tests. A managed job is not the
 same as an always-on API. Neither a drift flag nor a passing quality gate grants
 automatic deployment permission.
+
+## 9. Combined End-to-End PowerShell Run
+
+From the repository root, paste this entire block into PowerShell to run the
+setup, tests, pipeline, training, analysis and serving steps in order. A failed
+native command stops the run. JupyterLab, MLflow, the API and Streamlit are
+started as background processes so the sequence can continue; their output is
+written to a uniquely named folder under `$env:TEMP`. The API health check must
+report `status: ok`. On success, the services remain running after the block
+finishes. If a command fails, any services already started by the block are
+stopped.
+
+This is a full run: it downloads data, trains models, and can take substantial
+time and disk space. Open JupyterLab, MLflow, the API, and Streamlit at their
+documented local URLs after the block completes.
+
+```powershell
+$ErrorActionPreference = 'Stop'
+$script:Services = [System.Collections.Generic.List[object]]::new()
+$script:Completed = $false
+$script:Python = Join-Path (Get-Location).Path '.venv\Scripts\python.exe'
+$script:LogDir = Join-Path $env:TEMP ("taxi-forecasting-" + [guid]::NewGuid().ToString('N'))
+New-Item -ItemType Directory -Path $script:LogDir | Out-Null
+
+function Assert-Services {
+    foreach ($service in $script:Services) {
+        $service.Process.Refresh()
+        if ($service.Process.HasExited) {
+            $stderr = if (Test-Path $service.Stderr) { Get-Content $service.Stderr -Raw } else { '' }
+            throw "$($service.Name) exited with code $($service.Process.ExitCode). $stderr Logs: $script:LogDir"
+        }
+    }
+}
+
+function Invoke-Checked {
+    param([string]$FilePath, [string[]]$Arguments)
+    Assert-Services
+    & $FilePath @Arguments
+    if ($LASTEXITCODE -ne 0) {
+        throw "$FilePath failed with exit code $LASTEXITCODE."
+    }
+    Assert-Services
+}
+
+function Start-CheckedService {
+    param([string]$Name, [string[]]$Arguments)
+    Assert-Services
+    $stdout = Join-Path $script:LogDir "$Name.stdout.log"
+    $stderr = Join-Path $script:LogDir "$Name.stderr.log"
+    $process = Start-Process -FilePath $script:Python -ArgumentList $Arguments `
+        -WorkingDirectory (Get-Location).Path -RedirectStandardOutput $stdout `
+        -RedirectStandardError $stderr -PassThru
+    $script:Services.Add([pscustomobject]@{
+        Name = $Name
+        Process = $process
+        Stdout = $stdout
+        Stderr = $stderr
+    }) | Out-Null
+    Start-Sleep -Seconds 2
+    Assert-Services
+    Write-Host "$Name started. Logs: $script:LogDir"
+}
+
+try {
+    Invoke-Checked 'py' @('-3.11', '--version')
+    Invoke-Checked 'py' @('-3.11', '-m', 'venv', '.venv')
+    if (-not (Test-Path $script:Python)) { throw "Virtual environment Python was not created: $script:Python" }
+
+    Invoke-Checked $script:Python @('-m', 'pip', 'install', '--upgrade', 'pip')
+    Invoke-Checked $script:Python @('-m', 'pip', 'install', '-r', 'requirements.txt')
+    Invoke-Checked $script:Python @('-m', 'pytest')
+    Invoke-Checked $script:Python @('-m', 'ruff', 'check', '.')
+    Invoke-Checked $script:Python @('-m', 'pytest', '--cov=src', '--cov-report=term-missing')
+    Invoke-Checked $script:Python @('-m', 'scripts.run_pipeline', '--year', '2024', '--month', '1')
+
+    Start-CheckedService 'JupyterLab' @('-m', 'jupyterlab', 'notebooks/01_explore_dataset.ipynb')
+    Invoke-Checked $script:Python @('-m', 'scripts.train_models', '--n-trials', '1')
+    Start-CheckedService 'MLflow' @('-m', 'mlflow', 'ui', '--backend-store-uri', 'sqlite:///mlflow.db', '--host', '127.0.0.1', '--port', '5000')
+    Start-CheckedService 'API' @('-m', 'uvicorn', 'src.serving.api:app', '--host', '127.0.0.1', '--port', '8000')
+
+    $health = $null
+    for ($attempt = 0; $attempt -lt 30; $attempt++) {
+        Assert-Services
+        try {
+            $health = Invoke-RestMethod -Uri 'http://127.0.0.1:8000/health' -TimeoutSec 5
+            break
+        } catch {
+            if ($attempt -eq 29) { throw }
+            Start-Sleep -Seconds 2
+        }
+    }
+    if ($health.status -ne 'ok') { throw "API health check did not report status 'ok'." }
+
+    Invoke-Checked $script:Python @('-m', 'scripts.batch_forecast', '--horizon', '3')
+    Invoke-Checked $script:Python @('-m', 'scripts.responsible.run_analysis')
+    Invoke-Checked $script:Python @('-m', 'scripts.monitoring.demo_drift_report', '--problem', 'all', '--mode', 'drift')
+    Invoke-Checked $script:Python @('-m', 'pip', 'install', '-r', 'requirements-dashboard.txt')
+
+    $env:API_BASE_URL = 'http://127.0.0.1:8000'
+    Start-CheckedService 'Streamlit' @('-m', 'streamlit', 'run', 'dashboard/app.py', '--server.address', '127.0.0.1', '--server.port', '8501')
+    $script:Completed = $true
+} finally {
+    if (-not $script:Completed) {
+        foreach ($service in $script:Services) {
+            $service.Process.Refresh()
+            if (-not $service.Process.HasExited) {
+                Stop-Process -Id $service.Process.Id -Force
+            }
+        }
+    }
+}
+```
