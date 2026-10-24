@@ -33,6 +33,7 @@ after cloning: serving requires both registered models and saved demand history.
 
 - [Request and launch the Windows course image](docs/STUDENT_AWS_IMAGE_ACCESS.md)
 - [Deploy the API to AWS with CodeBuild](docs/STUDENT_AWS_DEPLOYMENT_WALKTHROUGH.md)
+- [GitHub Actions CI workflow](.github/workflows/ci.yml)
 - [Local setup and commands](docs/SETUP.md)
 - [API request examples](docs/API_EXAMPLES.md)
 - [System architecture](docs/ARCHITECTURE.md)
@@ -68,7 +69,15 @@ activities require your own authorized configuration or the stated local fallbac
 Docker, Terraform and AWS are optional for local operation. The cloud templates
 are not connected to any account, remote repository or existing deployment.
 They can create billable resources if you explicitly deploy them with credentials.
-No GitHub Actions workflows or automatic release hooks are configured here.
+GitHub Actions runs Python lint/tests/coverage, an artifact-independent Docker
+build/import smoke check, Terraform validation, and a full (data, training,
+Responsible AI, drift, API, dashboard, and production Docker runtime) end-to-end
+job on pushes and pull requests to `main`. The full run can take hours and
+downloads/trains on a temporary GitHub runner. It uploads reports and logs as a
+workflow artifact but does not publish an image or deploy AWS resources. The
+optional CodeBuild deployment path is described in the AWS deployment
+walkthrough and must be configured for your own authorized AWS account and
+GitHub repository.
 
 Historical evaluation does not establish current production quality. The default
 forecast follows the latest stored history, not the current clock. Model errors,

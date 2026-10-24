@@ -17,8 +17,8 @@ RUN python -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip \
     && /opt/venv/bin/pip install -r requirements.txt
 
-# --- Runtime: copy venv + source ---------------------------------------------
-FROM python:3.11-slim AS runtime
+# --- Shared runtime base: dependencies + application source -------------------
+FROM python:3.11-slim AS runtime-base
 
 # libgomp1 is required at runtime by XGBoost / LightGBM.
 RUN apt-get update \
@@ -34,6 +34,16 @@ COPY --from=builder /opt/venv /opt/venv
 COPY src ./src
 COPY config ./config
 COPY scripts ./scripts
+
+# CI builds this target without needing trained model artifacts, then imports
+# the API from the resulting image. The production target below additionally
+# requires the generated MLflow registry and demand-history files.
+FROM runtime-base AS ci
+RUN python -m compileall -q src scripts \
+    && python -c "from src.serving.api import app; print(app.title)"
+
+# --- Runtime image with baked model registry and serving data -----------------
+FROM runtime-base AS runtime
 
 # --- Baked model registry, artifacts and serving data ------------------------
 # The API is self-contained: it loads models from the MLflow registry and reads
