@@ -18,6 +18,9 @@ jobs:
   python-quality:
     name: Python lint, tests, and coverage
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: capstone/taxi-forecasting-student-main/taxi-forecasting-student-main
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -27,7 +30,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/requirements.txt
 
       - name: Install project dependencies
         run: python -m pip install -r requirements.txt
@@ -43,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-coverage
-          path: coverage.xml
+          path: capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/coverage.xml
           if-no-files-found: ignore
           retention-days: 14
 
@@ -60,7 +63,7 @@ jobs:
       - name: Build the artifact-independent CI image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ${{ github.workspace }}/capstone/taxi-forecasting-student-main/taxi-forecasting-student-main
           file: docker/Dockerfile
           target: ci
           load: true
@@ -77,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: infra/terraform
+        working-directory: capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/infra/terraform
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -107,6 +110,9 @@ jobs:
       - docker-image
       - terraform-validation
     timeout-minutes: 360
+    defaults:
+      run:
+        working-directory: capstone/taxi-forecasting-student-main/taxi-forecasting-student-main
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -117,8 +123,8 @@ jobs:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: |
-            requirements.txt
-            requirements-dashboard.txt
+            capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/requirements.txt
+            capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/requirements-dashboard.txt
 
       - name: Install project dependencies
         run: |
@@ -293,10 +299,10 @@ jobs:
         with:
           name: capstone-e2e-evidence
           path: |
-            evidence/
-            docs/model_cards/*.md
-            artifacts/responsible/*_fairness.json
-            artifacts/drift/*_drift_metrics.json
+            capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/evidence/
+            capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/docs/model_cards/*.md
+            capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/artifacts/responsible/*_fairness.json
+            capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/artifacts/drift/*_drift_metrics.json
           if-no-files-found: warn
           retention-days: 14
 
