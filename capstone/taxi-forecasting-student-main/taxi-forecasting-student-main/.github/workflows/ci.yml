@@ -99,6 +99,9 @@ jobs:
   full-capstone-e2e:
     name: Full capstone pipeline and Docker runtime
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     needs:
       - python-quality
       - docker-image
@@ -268,6 +271,22 @@ jobs:
                   time.sleep(2)
           PY
 
+      - name: Publish production image to GitHub Container Registry
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          image="ghcr.io/${GITHUB_REPOSITORY,,}"
+          sha_tag="sha-${GITHUB_SHA::7}"
+          echo "$GH_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          docker tag taxi-forecasting:e2e "${image}:${sha_tag}"
+          docker push "${image}:${sha_tag}"
+          docker tag taxi-forecasting:e2e "${image}:latest"
+          docker push "${image}:latest"
+          echo "Published ${image}:${sha_tag} and ${image}:latest"
+
       - name: Upload full-run evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -280,3 +299,7 @@ jobs:
             artifacts/drift/*_drift_metrics.json
           if-no-files-found: warn
           retention-days: 14
+
+
+# docker pull ghcr.io/a2026a1c100010bit/bits_capstone_programming:latest
+# docker run -d --name taxi-forecasting-api --restart unless-stopped -p 8000:8000 ghcr.io/a2026a1c100010bit/bits_capstone_programming:latest

@@ -74,10 +74,12 @@ build/import smoke check, Terraform validation, and a full (data, training,
 Responsible AI, drift, API, dashboard, and production Docker runtime) end-to-end
 job on pushes and pull requests to `main`. The full run can take hours and
 downloads/trains on a temporary GitHub runner. It uploads reports and logs as a
-workflow artifact but does not publish an image or deploy AWS resources. The
-optional CodeBuild deployment path is described in the AWS deployment
-walkthrough and must be configured for your own authorized AWS account and
-GitHub repository.
+workflow artifact. A successful push to `main` also publishes the production
+API image to GitHub Container Registry (GHCR), tagged with the commit and
+`latest`, using the workflow's automatically issued token. It does not deploy
+the image to a persistent host or deploy AWS resources. The optional CodeBuild
+deployment path is described in the AWS deployment walkthrough and must be
+configured for your own authorized AWS account and GitHub repository.
 
 Historical evaluation does not establish current production quality. The default
 forecast follows the latest stored history, not the current clock. Model errors,

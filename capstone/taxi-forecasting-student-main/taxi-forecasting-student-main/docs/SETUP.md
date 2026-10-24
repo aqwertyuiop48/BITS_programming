@@ -166,10 +166,24 @@ data, trains/registers models, runs batch inference, generates Responsible-AI
 and synthetic drift reports, builds and runs the production API image, makes
 live inference requests, and checks the dashboard responds. This can take
 hours. Logs and generated reports are uploaded as the `capstone-e2e-evidence`
-workflow artifact. The full job uses a temporary GitHub runner and does not
-publish an image or deploy a persistent service; the AWS CodeBuild deployment
-guide is separate. Do not commit generated model/data artifacts or credentials
-to make CI pass.
+workflow artifact. On a successful push to `main`, it publishes the production
+API image to GHCR as `ghcr.io/<owner>/<repository>:sha-<commit>` and
+`:latest`, using GitHub's automatic workflow token; no AWS or manually stored
+registry credentials are needed. GHCR packages may be private by default; set
+package visibility in GitHub if the image needs to be publicly pullable. The
+runner is temporary and this publication does not deploy a persistent service.
+On a supported Docker host, a public image can be pulled and run with:
+
+```powershell
+docker pull ghcr.io/<owner>/<repository>:latest
+docker run --detach --name taxi-forecasting-api --restart unless-stopped --publish 8000:8000 ghcr.io/<owner>/<repository>:latest
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/health"
+```
+
+Replace the owner and repository with your lowercase GitHub names. Private
+packages require authenticating Docker to GHCR with an account that has package
+read access. The AWS CodeBuild deployment guide is a separate deployment route.
+Do not commit generated model/data artifacts or credentials to make CI pass.
 
 ## 8. Optional Cloud and Configuration
 
