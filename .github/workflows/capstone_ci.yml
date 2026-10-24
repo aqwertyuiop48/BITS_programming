@@ -64,7 +64,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ${{ github.workspace }}/capstone/taxi-forecasting-student-main/taxi-forecasting-student-main
-          file: docker/Dockerfile
+          file: capstone/taxi-forecasting-student-main/taxi-forecasting-student-main/docker/Dockerfile
           target: ci
           load: true
           push: false
