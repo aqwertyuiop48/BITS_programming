@@ -1,3 +1,7 @@
+# NAME: SREEDHAR K
+# BITS Email ID: 2026a1c100010@bitspilani-digital.edu.in
+
+
 # Taxi Forecasting
 
 Python application for two NYC taxi prediction tasks:
